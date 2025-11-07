@@ -51,10 +51,11 @@ export default function HowItWorksSection() {
                 </div>
                 <div className="w-full max-w-xs mx-auto lg:mx-0">
                   <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center">
-                    <div className="text-gray-500 text-sm text-center">
+                    {/* <div className="text-gray-500 text-sm text-center">
                       <div>Consultation</div>
                       <div>Image</div>
-                    </div>
+                    </div> */}
+                    <img src="11.webp" alt="" />
                   </div>
                 </div>
               </div>
@@ -89,7 +90,7 @@ export default function HowItWorksSection() {
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-1 order-2 lg:order-1">
               <div className="flex flex-col items-center lg:items-start">
-                <div className="flex gap-4 mb-4">
+                {/* <div className="flex gap-4 mb-4">
                   {['Attorney', 'Paralegal', 'Case Manager', 'Investigator'].map((role, index) => (
                     <div key={index} className="flex flex-col items-center">
                       <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center mb-2 overflow-hidden">
@@ -98,7 +99,8 @@ export default function HowItWorksSection() {
                       <span className="text-xs text-gray-600 text-center">{role}</span>
                     </div>
                   ))}
-                </div>
+                </div> */}
+                <img src="12.webp" alt="" />
               </div>
             </div>
             
@@ -131,7 +133,7 @@ export default function HowItWorksSection() {
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-1">
               <div className="flex flex-col items-center lg:items-start">
-                <div className="space-y-3">
+                {/* <div className="space-y-3">
                   <div className="bg-blue-100 p-4 rounded-lg transform rotate-2">
                     <div className="flex items-center gap-2 mb-2">
                       <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +158,8 @@ export default function HowItWorksSection() {
                       <span className="text-sm font-semibold text-blue-800">Fight for Best Result</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
+                <img src="13.webp" alt="" />
               </div>
             </div>
             

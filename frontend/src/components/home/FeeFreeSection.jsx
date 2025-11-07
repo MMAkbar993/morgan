@@ -36,30 +36,31 @@ export default function FeeFreeSection() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               AMERICA'S LARGEST INJURY LAW FIRM™
             </h1>
-            
+
             {/* Call to Action */}
             <p className="text-lg md:text-xl mb-6">
               Get a <span className="underline font-semibold">FREE</span> case evaluation today.
             </p>
-            
+
             {/* Video Player */}
             <div className="relative mb-8 w-full max-w-lg">
               <div className="relative bg-gray-300 rounded-lg overflow-hidden aspect-video">
                 {/* Video Thumbnail Placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-                  <div className="text-gray-500 text-sm">Video Thumbnail</div>
+                  {/* <div className="text-gray-500 text-sm"><img src="" alt="" /></div> */}
+                  <img src="16.webp" alt="Video Thumbnail" />
                 </div>
                 {/* Play Button */}
                 <button className="absolute inset-0 flex items-center justify-center group">
                   <div className="w-16 h-16 md:w-20 md:h-20 bg-[#ffe000] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <svg className="w-8 h-8 md:w-10 md:h-10 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
+                      <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
                 </button>
               </div>
             </div>
-            
+
             {/* As seen on */}
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
               <span className="text-sm md:text-base whitespace-nowrap">As seen on:</span>
@@ -74,11 +75,11 @@ export default function FeeFreeSection() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="flex flex-col">
+          <div className="flex flex-col border-2 border-[rgba #ffffff4d(255, 255, 255, 0.30);] border-solid rounded-lg p-4">
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
               It's Easy to Get Started.
             </h2>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* First Name and Last Name */}
               <div className="grid grid-cols-2 gap-4">
@@ -101,7 +102,7 @@ export default function FeeFreeSection() {
                   required
                 />
               </div>
-              
+
               {/* Phone Number and Zip Code */}
               <div className="grid grid-cols-2 gap-4">
                 <input
@@ -123,7 +124,7 @@ export default function FeeFreeSection() {
                   required
                 />
               </div>
-              
+
               {/* Email */}
               <input
                 type="email"
@@ -134,7 +135,7 @@ export default function FeeFreeSection() {
                 className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
                 required
               />
-              
+
               {/* Case Type Dropdown */}
               <select
                 name="caseType"
@@ -152,7 +153,7 @@ export default function FeeFreeSection() {
                 <option value="workers-compensation">Workers' Compensation</option>
                 <option value="other">Other</option>
               </select>
-              
+
               {/* Description Textarea */}
               <textarea
                 name="description"
@@ -163,7 +164,7 @@ export default function FeeFreeSection() {
                 className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000] resize-none"
                 required
               />
-              
+
               {/* Consent Checkbox */}
               <div className="flex items-start gap-3">
                 <input
@@ -179,12 +180,12 @@ export default function FeeFreeSection() {
                   I hereby expressly consent to receive automated communications including calls, texts, emails, and/or prerecorded messages.
                 </label>
               </div>
-              
+
               {/* Terms & Privacy */}
               <p className="text-xs text-gray-300">
                 By submitting this form, you agree to our Terms & acknowledge our Privacy Policy.
               </p>
-              
+
               {/* Submit Button */}
               <button
                 type="submit"
@@ -192,7 +193,7 @@ export default function FeeFreeSection() {
               >
                 Start your claim
               </button>
-              
+
               {/* Copyright Notice */}
               <p className="text-xs text-gray-400 text-center mt-4">
                 Results may vary depending on your particular facts and legal circumstances. ©2025 Morgan and Morgan, P.A. All rights reserved.

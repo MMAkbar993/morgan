@@ -5,13 +5,15 @@ export default function WeKnowYourPainSection() {
     <section className="relative py-0">
       <div className="relative w-full">
         {/* Background Image */}
-        <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-gray-300">
+        <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
           {/* Placeholder for image - replace with actual image */}
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-400 to-gray-600">
-            <div className="text-white text-center">
+          <div className="absolute inset-0 flex items-center justify-center rounded-lg">
+            {/* <div className="text-white text-center">
               <div className="text-lg mb-2">Office Meeting Image</div>
+              
               <div className="text-sm">Conference room with team</div>
-            </div>
+            </div> */}
+            <img src="4.avif" alt="" />
           </div>
 
           {/* Play Button */}
@@ -24,7 +26,7 @@ export default function WeKnowYourPainSection() {
           </button>
 
           {/* Overlay with Text */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8 md:p-12">
+          <div className="absolute bottom-0 left-20 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8 md:p-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               WE KNOW YOUR PAIN.
             </h2>
