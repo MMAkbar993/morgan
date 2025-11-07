@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
+import { useSubmission } from '../../hooks/useSubmission';
 
 export default function FeeFreeSection() {
-  const [formData, setFormData] = useState({
+  const { t, i18n } = useTranslation();
+  const { submit, status, resetStatus } = useSubmission();
+
+  const initialFormState = {
     firstName: '',
     lastName: '',
     phone: '',
@@ -10,7 +15,9 @@ export default function FeeFreeSection() {
     caseType: '',
     description: '',
     consent: false
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -18,28 +25,44 @@ export default function FeeFreeSection() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
+
+    if (status.state !== 'idle') {
+      resetStatus();
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    try {
+      await submit({
+        ...formData,
+        locale: i18n.language,
+      });
+      setFormData(initialFormState);
+    } catch {
+      // status handled in hook
+    }
   };
+
+  const caseTypes = t('feeFree.caseTypes', { returnObjects: true });
 
   return (
-    <section className="bg-[#1a2b5b] text-white py-12 px-4">
+    <section className="bg-brand-primary text-white py-12 px-4">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column */}
           <div className="flex flex-col">
             {/* Header Text */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              AMERICA'S LARGEST INJURY LAW FIRM™
+              {t('feeFree.heading')}
             </h1>
 
             {/* Call to Action */}
             <p className="text-lg md:text-xl mb-6">
-              Get a <span className="underline font-semibold">FREE</span> case evaluation today.
+              <Trans
+                i18nKey="feeFree.subheading"
+                components={[<span className="underline font-semibold" />]}
+              />
             </p>
 
             {/* Video Player */}
@@ -48,11 +71,11 @@ export default function FeeFreeSection() {
                 {/* Video Thumbnail Placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
                   {/* <div className="text-gray-500 text-sm"><img src="" alt="" /></div> */}
-                  <img src="16.webp" alt="Video Thumbnail" />
+                  <img src="16.webp" alt={t('feeFree.videoAlt')} />
                 </div>
                 {/* Play Button */}
                 <button className="absolute inset-0 flex items-center justify-center group">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-[#ffe000] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-accent rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <svg className="w-8 h-8 md:w-10 md:h-10 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
@@ -63,7 +86,7 @@ export default function FeeFreeSection() {
 
             {/* As seen on */}
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <span className="text-sm md:text-base whitespace-nowrap">As seen on:</span>
+              <span className="text-sm md:text-base whitespace-nowrap">{t('feeFree.asSeenOn')}</span>
               <div className="flex flex-wrap items-center gap-4 md:gap-6">
                 <span className="text-sm md:text-base font-semibold">ABC NEWS</span>
                 <span className="text-sm md:text-base font-semibold">CNN</span>
@@ -75,52 +98,52 @@ export default function FeeFreeSection() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="flex flex-col border-2 border-[rgba #ffffff4d(255, 255, 255, 0.30);] border-solid rounded-lg p-4">
+          <div className="flex flex-col rounded-lg border border-white/30 bg-white/5 p-5 sm:p-6 backdrop-blur">
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-              It's Easy to Get Started.
+              {t('feeFree.formTitle')}
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* First Name and Last Name */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <input
                   type="text"
                   name="firstName"
-                  placeholder="First Name"
+                  placeholder={t('common.form.firstName')}
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
+                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent"
                   required
                 />
                 <input
                   type="text"
                   name="lastName"
-                  placeholder="Last Name"
+                  placeholder={t('common.form.lastName')}
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
+                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent"
                   required
                 />
               </div>
 
               {/* Phone Number and Zip Code */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone Number"
+                  placeholder={t('common.form.phone')}
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
+                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent"
                   required
                 />
                 <input
                   type="text"
                   name="zipCode"
-                  placeholder="Zip Code"
+                  placeholder={t('common.form.zip')}
                   value={formData.zipCode}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
+                  className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent"
                   required
                 />
               </div>
@@ -129,10 +152,10 @@ export default function FeeFreeSection() {
               <input
                 type="email"
                 name="email"
-                placeholder="E-mail"
+                placeholder={t('common.form.email')}
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
+                className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent"
                 required
               />
 
@@ -141,27 +164,25 @@ export default function FeeFreeSection() {
                 name="caseType"
                 value={formData.caseType}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000]"
+                className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent"
                 required
               >
-                <option value="">- Case Type -</option>
-                <option value="car-accident">Car Accident</option>
-                <option value="truck-accident">Truck Accident</option>
-                <option value="motorcycle-accident">Motorcycle Accident</option>
-                <option value="slip-fall">Slip and Fall</option>
-                <option value="medical-malpractice">Medical Malpractice</option>
-                <option value="workers-compensation">Workers' Compensation</option>
-                <option value="other">Other</option>
+                <option value="">{t('common.form.caseTypePlaceholder')}</option>
+                {caseTypes.map(({ value, label }) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
               </select>
 
               {/* Description Textarea */}
               <textarea
                 name="description"
-                placeholder="Please describe what happened"
+                placeholder={t('common.form.description')}
                 value={formData.description}
                 onChange={handleChange}
                 rows="4"
-                className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#ffe000] resize-none"
+                className="w-full px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-brand-accent resize-none"
                 required
               />
 
@@ -173,30 +194,56 @@ export default function FeeFreeSection() {
                   id="consent"
                   checked={formData.consent}
                   onChange={handleChange}
-                  className="mt-1 w-5 h-5 rounded border-gray-300 text-[#1a2b5b] focus:ring-[#ffe000]"
+                  className="mt-1 w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-accent"
                   required
                 />
                 <label htmlFor="consent" className="text-sm">
-                  I hereby expressly consent to receive automated communications including calls, texts, emails, and/or prerecorded messages.
+                  {t('common.form.consent')}
                 </label>
               </div>
 
               {/* Terms & Privacy */}
               <p className="text-xs text-gray-300">
-                By submitting this form, you agree to our Terms & acknowledge our Privacy Policy.
+                {t('common.form.terms')}
               </p>
 
               {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full bg-[#ffe000] text-black font-bold py-4 rounded-lg hover:bg-[#e6cc00] transition-colors text-lg"
-              >
-                Start your claim
-              </button>
+              <div className="space-y-3">
+                <button
+                  type="submit"
+                  className="w-full bg-brand-accent text-black font-bold py-4 rounded-lg transition-colors hover:bg-brand-accentDark text-lg disabled:cursor-not-allowed disabled:opacity-70"
+                  disabled={status.state === 'loading'}
+                >
+                  {status.state === 'loading' ? t('common.buttons.submitting') : t('feeFree.startButton')}
+                </button>
+
+                <div className="min-h-[1.5rem] text-sm" aria-live="polite">
+                  {status.state === 'success' && (
+                    <div className="space-y-1 text-green-100">
+                      <p>{t('common.messages.submissionSuccess')}</p>
+                      {status.location && (
+                        <p>
+                          {t('common.messages.locationGuess', {
+                            city: status.location.city || '—',
+                            region: status.location.region || '—',
+                            country: status.location.country || '—',
+                            source: status.location.source || 'lookup',
+                          })}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  {status.state === 'error' && (
+                    <p className="text-red-200">
+                      {status.message || t('common.messages.submissionError')}
+                    </p>
+                  )}
+                </div>
+              </div>
 
               {/* Copyright Notice */}
               <p className="text-xs text-gray-400 text-center mt-4">
-                Results may vary depending on your particular facts and legal circumstances. ©2025 Morgan and Morgan, P.A. All rights reserved.
+                {t('common.disclaimers.copyright')}
               </p>
             </form>
           </div>

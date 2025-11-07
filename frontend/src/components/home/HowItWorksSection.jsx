@@ -1,15 +1,20 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function HowItWorksSection() {
+  const { t } = useTranslation();
+  const steps = t('howItWorks.steps', { returnObjects: true });
+  const channels = t('howItWorks.channels', { returnObjects: true });
+
   return (
     <section className="bg-white py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            How It Works
+            {t('howItWorks.title')}
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-            Unsure what to do next? With 35 years of experience, our personal injury lawyers will guide you every step of the way.
+            {t('howItWorks.description')}
           </p>
         </div>
 
@@ -26,7 +31,7 @@ export default function HowItWorksSection() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                       </div>
-                      <span className="text-xs text-gray-600">Form</span>
+                      <span className="text-xs text-gray-600">{channels.form}</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2">
@@ -34,7 +39,7 @@ export default function HowItWorksSection() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
-                      <span className="text-xs text-gray-600">Phone</span>
+                      <span className="text-xs text-gray-600">{channels.phone}</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2">
@@ -42,7 +47,7 @@ export default function HowItWorksSection() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
                       </div>
-                      <span className="text-xs text-gray-600">Text</span>
+                      <span className="text-xs text-gray-600">{channels.text}</span>
                     </div>
                   </div>
                   <svg className="w-8 h-8 text-blue-600 hidden lg:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,18 +69,18 @@ export default function HowItWorksSection() {
             <div className="lg:col-span-2 flex items-start gap-6">
               <div className="flex-shrink-0">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-3xl font-bold text-blue-600">1</span>
+                  <span className="text-3xl font-bold text-blue-600">{steps[0].number}</span>
                 </div>
               </div>
               <div className="flex-grow">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  Contact Us 24/7 - It's Free
+                  {steps[0].title}
                 </h3>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Start with a free, no-obligation case evaluation online, by phone, or via text. Tell us your story—we're here to listen.
+                  {steps[0].description}
                 </p>
                 <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                  Start your claim
+                  {steps[0].link}
                   <svg className="w-4 h-4 ml-1 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -107,18 +112,18 @@ export default function HowItWorksSection() {
             <div className="lg:col-span-2 flex items-start gap-6 order-1 lg:order-2">
               <div className="flex-shrink-0">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-3xl font-bold text-blue-600">2</span>
+                  <span className="text-3xl font-bold text-blue-600">{steps[1].number}</span>
                 </div>
               </div>
               <div className="flex-grow">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  Meet Your Dedicated Attorney
+                  {steps[1].title}
                 </h3>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Once your case qualifies, we'll pair you with a lawyer and a supportive team. They'll handle everything, keep you informed, and answer all your questions.
+                  {steps[1].description}
                 </p>
                 <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                  Meet the attorneys
+                  {steps[1].link}
                   <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -166,18 +171,18 @@ export default function HowItWorksSection() {
             <div className="lg:col-span-2 flex items-start gap-6">
               <div className="flex-shrink-0">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-3xl font-bold text-blue-600">3</span>
+                  <span className="text-3xl font-bold text-blue-600">{steps[2].number}</span>
                 </div>
               </div>
               <div className="flex-grow">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  We Fight For More
+                  {steps[2].title}
                 </h3>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Your legal team will build a strong case, negotiate with insurance companies, and pursue the maximum results you deserve.
+                  {steps[2].description}
                 </p>
                 <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                  Learn more about the case process
+                  {steps[2].link}
                   <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>

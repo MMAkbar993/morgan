@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function InsightsResourcesSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useTranslation();
 
   const articles = [
     {
@@ -42,21 +44,27 @@ export default function InsightsResourcesSection() {
     }
   ];
 
+  const articleTitles = t('insights.articles', { returnObjects: true });
+  const articleCards = articles.map((article, index) => ({
+    ...article,
+    title: articleTitles[index] ?? article.title,
+  }));
+
   return (
     <section className="bg-gray-100 py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8">
           <div className="md:w-1/2 mb-6 md:mb-0">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Insights & Resources
+              {t('insights.title')}
             </h2>
           </div>
           <div className="md:w-1/2">
             <p className="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
-              Explore articles and resources to guide you through your options and making informed decisions after an accident.
+              {t('insights.description')}
             </p>
             <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-              View more helpful articles
+              {t('common.buttons.viewHelpfulArticles')}
               <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -68,7 +76,7 @@ export default function InsightsResourcesSection() {
         <div className="relative">
           <div className="overflow-x-auto pb-4 scrollbar-hide">
             <div className="flex gap-6 min-w-max">
-              {articles.map((article, index) => (
+              {articleCards.map((article, index) => (
                 <div
                   key={index}
                   className={`${article.color} rounded-lg p-6 md:p-8 min-w-[280px] md:min-w-[320px] flex flex-col items-center text-center hover:shadow-lg transition-shadow cursor-pointer`}
@@ -96,7 +104,7 @@ export default function InsightsResourcesSection() {
                   ? 'bg-gray-900 w-8'
                   : 'bg-gray-400 hover:bg-gray-600'
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={t('common.aria.goToSlide', { index: index + 1 })}
             />
           ))}
         </div>

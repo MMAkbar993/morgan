@@ -5,7 +5,6 @@ import WaysWeCanHelpSection from '../components/home/WaysWeCanHelpSection';
 import CaseTypesSection from '../components/home/CaseTypesSection';
 import FacesOfJusticeSection from '../components/home/FacesOfJusticeSection';
 import CompensationSection from '../components/home/CompensationSection';
-import TestimonialsSection from '../components/home/TestimonialsSection';
 import HowItWorksSection from '../components/home/HowItWorksSection';
 import FightingForPeopleSection from '../components/home/FightingForPeopleSection';
 import WeKnowYourPainSection from '../components/home/WeKnowYourPainSection';
@@ -23,7 +22,6 @@ export default function Home() {
       <CaseTypesSection />
       <FacesOfJusticeSection />
       <CompensationSection />
-      <TestimonialsSection />
       <HowItWorksSection />
 
       <FightingForPeopleSection />

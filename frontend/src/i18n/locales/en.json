@@ -1,0 +1,283 @@
+{
+  "common": {
+    "phone": "(844) 332-1326",
+    "buttons": {
+      "freeCaseReview": "Free Case Review",
+      "startClaim": "Start your claim",
+      "meetAttorneys": "Meet the attorneys",
+      "learnCaseProcess": "Learn more about the case process",
+      "seeMoreResults": "See more results",
+      "viewHelpfulArticles": "View more helpful articles",
+      "viewAll": "View all",
+      "howWeHelp": "How We Help",
+      "meetOurAttorneys": "Meet our attorneys",
+      "viewArticles": "View more helpful articles",
+      "submitting": "Submitting..."
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone Number",
+      "zip": "Zip Code",
+      "email": "E-mail",
+      "caseType": "Case Type",
+      "caseTypePlaceholder": "- Case Type -",
+      "description": "Please describe what happened",
+      "consent": "I hereby expressly consent to receive automated communications including calls, texts, emails, and/or prerecorded messages.",
+      "consentRequired": "Consent is required",
+      "terms": "By submitting this form, you agree to our Terms & acknowledge our Privacy Policy."
+    },
+    "messages": {
+      "submissionSuccess": "Thanks! A team member will reach out shortly.",
+      "submissionError": "We couldn't process your submission. Please try again or call us directly.",
+      "locationGuess": "Detected location: {{city}}, {{region}}, {{country}} (via {{source}})"
+    },
+    "disclaimers": {
+      "resultsMayVary": "Results may vary depending on your particular facts and legal circumstances.",
+      "copyright": "Results may vary depending on your particular facts and legal circumstances. ©2025 Morgan and Morgan, P.A. All rights reserved.",
+      "attorneyAvailability": "The attorneys shown in these videos may not be licensed in your state. To find an attorney licensed in your area, please visit our attorney page.",
+      "attorneyFeature": "The attorney featured above is licensed in Florida. For a full list of attorneys in your state please visit our attorney page. Results may vary depending on your particular facts and legal circumstances."
+    },
+    "aria": {
+      "goToSlide": "Go to slide {{index}}",
+      "playVideo": "Play video for {{name}}",
+      "showPreviousAttorney": "Show previous attorney",
+      "showNextAttorney": "Show next attorney"
+    },
+    "language": {
+      "toSpanish": "Español",
+      "toEnglish": "English"
+    }
+  },
+  "header": {
+    "logo": "MORGAN & MORGAN",
+    "tagline": {
+      "prefix": "AMERICA'S ",
+      "highlight": "LARGEST",
+      "suffix": " INJURY LAW FIRM"
+    },
+    "nav": {
+      "locations": "Locations",
+      "practiceAreas": "Practice Areas",
+      "attorneys": "Attorneys",
+      "about": "About",
+      "results": "Our Results",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "titleLine1": "Personal Injury Lawyers",
+    "titleLine2": "Fighting For You",
+    "description": "With 35 years, 1,000 attorneys, and $25 billion recovered, we fight to get you what you deserve—start your free case review anytime by text, phone, or online.",
+    "features": [
+      "FIGHTING FOR MORE",
+      "THE FEE IS FREE, UNLESS WE WIN",
+      "LOCAL CARE + NATIONAL POWER"
+    ]
+  },
+  "feeFree": {
+    "heading": "AMERICA'S LARGEST INJURY LAW FIRM™",
+    "subheading": "Get a <0>FREE</0> case evaluation today.",
+    "asSeenOn": "As seen on:",
+    "videoAlt": "Client story video thumbnail",
+    "formTitle": "It's Easy to Get Started.",
+    "startButton": "Start your claim",
+    "caseTypes": [
+      { "value": "car-accident", "label": "Car Accident" },
+      { "value": "truck-accident", "label": "Truck Accident" },
+      { "value": "motorcycle-accident", "label": "Motorcycle Accident" },
+      { "value": "slip-fall", "label": "Slip and Fall" },
+      { "value": "medical-malpractice", "label": "Medical Malpractice" },
+      { "value": "workers-compensation", "label": "Workers' Compensation" },
+      { "value": "other", "label": "Other" }
+    ]
+  },
+  "bigWins": {
+    "title": "The Right Firm for Big Wins",
+    "description": "Insurance companies know us—and they know we fight for every dollar.",
+    "cta": "Get a free case evaluation",
+    "link": "See more results",
+    "caseHighlight": "Kimberly won <0>20x</0> what was offered",
+    "insuranceOffer": "insurance offer",
+    "verdict": "verdict",
+    "caseDetails": "Car Accident | Orlando, FL",
+    "disclaimer": "Results may vary depending on your particular facts and legal circumstances. The attorneys shown in these photos may not be licensed in your state. To find an attorney licensed in your area, please visit our attorney page."
+  },
+  "ways": {
+    "title": "Ways We Can Help",
+    "cards": [
+      {
+        "title": "Injured in a car accident?",
+        "description": "We've helped thousands recover medical bills, lost wages, and more after crashes caused by negligence."
+      },
+      {
+        "title": "Hurt in a slip and fall?",
+        "description": "From wet floors to unsafe conditions, we fight to hold property owners accountable for your injuries."
+      },
+      {
+        "title": "Injured on the job?",
+        "description": "We guide workers through the claims process to secure the benefits they deserve for workplace injuries."
+      }
+    ]
+  },
+  "caseTypes": {
+    "title": "Over 50 Case Types, Like:",
+    "items": [
+      "Social Security",
+      "Nursing Home Abuse",
+      "Dangerous Drugs",
+      "Labor & Employment",
+      "Defective Products",
+      "Truck Accidents",
+      "Medical Malpractice",
+      "Class Actions"
+    ]
+  },
+  "faces": {
+    "title": "The Faces of Justice",
+    "description": "Our 1,000+ attorneys are whip-smart, bighearted, and passionate people who wouldn't hesitate to go the extra mile for their clients.",
+    "signatureLabel": "Signature",
+    "profileName": "Matt Morgan",
+    "profileTitle": "Managing Partner",
+    "meetLink": "Meet our attorneys",
+    "disclaimer": "The attorneys shown in these videos may not be licensed in your state. To find an attorney licensed in your area, please visit our attorney page."
+  },
+  "compensation": {
+    "title": "We're here to help you recover compensation for:",
+    "items": [
+      "Medical Treatments",
+      "Lost Wages",
+      "Pain & Suffering"
+    ]
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "description": "Unsure what to do next? With 35 years of experience, our personal injury lawyers will guide you every step of the way.",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Contact Us 24/7 - It's Free",
+        "description": "Start with a free, no-obligation case evaluation online, by phone, or via text. Tell us your story—we're here to listen.",
+        "link": "Start your claim"
+      },
+      {
+        "number": "2",
+        "title": "Meet Your Dedicated Attorney",
+        "description": "Once your case qualifies, we'll pair you with a lawyer and a supportive team. They'll handle everything, keep you informed, and answer all your questions.",
+        "link": "Meet the attorneys"
+      },
+      {
+        "number": "3",
+        "title": "We Fight For More",
+        "description": "Your legal team will build a strong case, negotiate with insurance companies, and pursue the maximum results you deserve.",
+        "link": "Learn more about the case process"
+      }
+    ],
+    "channels": {
+      "form": "Form",
+      "phone": "Phone",
+      "text": "Text"
+    }
+  },
+  "fighting": {
+    "title": "Fighting for the People",
+    "description": "There's a reason we're America's largest injury law firm: our size means we can help more people, in more places, and fight for the justice they deserve.",
+    "stats": [
+      {
+        "value": "$25 BILLION",
+        "label": "Recovered for clients nationwide"
+      },
+      {
+        "value": "700,000+",
+        "label": "Clients and families"
+      },
+      {
+        "value": "50 STATES",
+        "label": "With attorneys ready"
+      },
+      {
+        "value": "1",
+        "label": "Click may change your life"
+      }
+    ]
+  },
+  "pain": {
+    "title": "WE KNOW YOUR PAIN.",
+    "description": "John Morgan's brother Tim was injured as a teen. Their experience with a lawyer was a nightmare. John spent 35 years building a firm to do better for families like his. And yours.",
+    "disclaimer": "The attorney featured above is licensed in Florida. For a full list of attorneys in your state please visit our attorney page. Results may vary depending on your particular facts and legal circumstances."
+  },
+  "insights": {
+    "title": "Insights & Resources",
+    "description": "Explore articles and resources to guide you through your options and making informed decisions after an accident.",
+    "articles": [
+      "The Basics: What is a personal injury lawsuit?",
+      "How Much is My Personal Injury Case Worth?",
+      "The Morgan & Morgan Difference",
+      "Why Case Details Matter"
+    ]
+  },
+  "feeFreeForm": {
+    "title": "THE FEE IS FREE®",
+    "description": "Only pay if we win. Contact us 24/7.",
+    "subtitle": "It's Easy to Get Started",
+    "intro": "Provide a few simple details about your injury and our team will take it from there.",
+    "submit": "Start your claim"
+  },
+  "footer": {
+    "intro": {
+      "headline": "MORGAN & MORGAN",
+      "tagline": "AMERICA'S LARGEST INJURY LAW FIRM",
+      "description": "After 35 years, Morgan & Morgan remains a family firm dedicated to fighting for the average American family.",
+      "reviews": "100k+ 5-Star Reviews"
+    },
+    "columns": {
+      "mm": {
+        "title": "M&M",
+        "links": [
+          "Locations",
+          "Practice Areas",
+          "Our Results",
+          "How It Works",
+          "Careers",
+          "Contact Us"
+        ]
+      },
+      "about": {
+        "title": "About",
+        "links": [
+          "Our Story",
+          "Our Attorneys",
+          "Newsroom",
+          "FAQ",
+          "In the Media",
+          "Community Impact"
+        ]
+      },
+      "quickLinks": {
+        "title": "Quick Links",
+        "links": [
+          "Accessibility",
+          "Complaints",
+          "Pound Law",
+          "Opt Out",
+          "Co-counsel",
+          "Editorial Policy"
+        ]
+      },
+      "social": {
+        "title": "Social",
+        "appStores": "App Stores"
+      }
+    },
+    "selectOffices": "Select Offices",
+    "officesList": "Orlando, Fort Myers, Jacksonville, Miami, Atlanta, Tampa, Los Angeles, Boston, New York City, Philadelphia, Nashville",
+    "officeLink": "For a full list of locations in your area please visit our {{link}} page.",
+    "officeLinkLabel": "Office Locations",
+    "disclaimer": "This site is designed to be accessible to and usable by people with and without disabilities. Please contact us if you encounter an accessibility or usability issue on this site. Attorney advertising. Prior results do not guarantee a similar outcome. Cases will be handled by attorneys licensed in the local jurisdiction. Cases may be associated with, or referred to, other law firms as co-counsel or referral counsel. Based on select nationwide reviews.",
+    "privacyChoices": "Your privacy choices.",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Disclaimers and Terms of Use",
+    "copyright": "©2025 Morgan and Morgan, P.A. All rights reserved"
+  }
+}
+

@@ -1,6 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const mmLinks = t('footer.columns.mm.links', { returnObjects: true });
+  const aboutLinks = t('footer.columns.about.links', { returnObjects: true });
+  const quickLinks = t('footer.columns.quickLinks.links', { returnObjects: true });
+  const officeLinkParts = t('footer.officeLink').split('{{link}}');
+  const officeLinkBefore = officeLinkParts[0] ?? '';
+  const officeLinkAfter = officeLinkParts[1] ?? '';
+  const socialTitle = t('footer.columns.social.title');
+
   return (
     <footer className="bg-white text-black border-t border-gray-200">
       {/* Main Footer Content */}
@@ -10,13 +20,13 @@ export default function Footer() {
           <div className="lg:w-1/3">
             <div className="mb-4">
               <h2 className="text-2xl font-bold mb-1">
-                MORGAN & MORGAN
-                <span className="block w-24 h-1 bg-[#ffe000] mt-1"></span>
+                {t('footer.intro.headline')}
+                <span className="block w-24 h-1 bg-brand-accent mt-1"></span>
               </h2>
-              <p className="text-sm text-gray-600">AMERICA'S LARGEST INJURY LAW FIRM</p>
+              <p className="text-sm text-gray-600">{t('footer.intro.tagline')}</p>
             </div>
             <p className="text-gray-700 mb-4 text-sm">
-              After 35 years, Morgan & Morgan remains a family firm dedicated to fighting for the average American family.
+              {t('footer.intro.description')}
             </p>
             <div className="flex items-center space-x-2">
               <div className="flex">
@@ -26,7 +36,9 @@ export default function Footer() {
                   </svg>
                 ))}
               </div>
-              <span className="text-gray-700 font-semibold text-sm">100k+ 5-Star Reviews</span>
+              <span className="text-gray-700 font-semibold text-sm">
+                {t('footer.intro.reviews')}
+              </span>
             </div>
           </div>
 
@@ -34,46 +46,49 @@ export default function Footer() {
           <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* M&M Column */}
           <div>
-            <h3 className="font-bold mb-4">M&M</h3>
+            <h3 className="font-bold mb-4">{t('footer.columns.mm.title')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Locations</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Practice Areas</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Our Results</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">How It Works</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Contact Us</a></li>
+              {mmLinks.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="transition-colors hover:text-brand-accent">
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* About Column */}
           <div>
-            <h3 className="font-bold mb-4">About</h3>
+            <h3 className="font-bold mb-4">{t('footer.columns.about.title')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Our Story</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Our Attorneys</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">FAQ</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">In the Media</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Testimonials</a></li>
+              {aboutLinks.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="transition-colors hover:text-brand-accent">
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Quick Links Column */}
           <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
+            <h3 className="font-bold mb-4">{t('footer.columns.quickLinks.title')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Accessibility</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Complaints</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Pound Law</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Opt Out</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Co-counsel</a></li>
-              <li><a href="#" className="hover:text-[#ffe000] transition-colors">Editorial Policy</a></li>
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="transition-colors hover:text-brand-accent">
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Social Column */}
           <div>
-            <h3 className="font-bold mb-4">Social</h3>
+            <h3 className="font-bold mb-4">{socialTitle}</h3>
             <div className="flex space-x-2 mb-6">
               <a href="#" className="w-8 h-8 border border-gray-300 flex items-center justify-center hover:bg-gray-100">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -102,7 +117,7 @@ export default function Footer() {
               </a>
             </div>
             <div>
-              <h4 className="font-semibold mb-2 text-sm">App Stores</h4>
+              <h4 className="font-semibold mb-2 text-sm">{t('footer.columns.social.appStores')}</h4>
               <div className="space-y-2">
                 <a href="#" className="block">
                   <div className="border border-gray-300 px-3 py-2 text-xs flex items-center space-x-2 hover:bg-gray-50">
@@ -150,19 +165,23 @@ export default function Footer() {
 
         {/* Office Locations */}
         <div className="mb-8">
-          <h3 className="font-bold mb-4">Select Offices</h3>
+          <h3 className="font-bold mb-4">{t('footer.selectOffices')}</h3>
           <p className="text-sm text-gray-700 mb-2">
-            Orlando, Fort Myers, Jacksonville, Miami, Atlanta, Tampa, Los Angeles, Boston, New York City, Philadelphia, Nashville
+            {t('footer.officesList')}
           </p>
           <p className="text-sm text-gray-600">
-            For a full list of locations in your area please visit our <a href="#" className="text-[#ffe000] hover:underline">Office Locations</a> page.
+            {officeLinkBefore}
+            <a href="#" className="text-brand-accent hover:underline">
+              {t('footer.officeLinkLabel')}
+            </a>
+            {officeLinkAfter}
           </p>
         </div>
 
         {/* Legal Disclaimer */}
         <div className="mb-8 text-xs text-gray-600">
           <p>
-            This site is designed to be accessible to and usable by people with and without disabilities. Please contact us if you encounter an accessibility or usability issue on this site. Attorney advertising. Prior results do not guarantee a similar outcome. Cases will be handled by attorneys licensed in the local jurisdiction. Cases may be associated with, or referred to, other law firms as co-counsel or referral counsel. Based on select nationwide reviews.
+            {t('footer.disclaimer')}
           </p>
         </div>
       </div>
@@ -172,14 +191,18 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <div className="text-sm text-gray-600">
-              ©2025 Morgan and Morgan, P.A. All rights reserved
+              {t('footer.copyright')}
             </div>
             <div className="flex items-center space-x-4">
               <button className="bg-gray-700 text-white px-4 py-2 text-sm hover:bg-gray-800 transition-colors">
-                Your privacy choices.
+                {t('footer.privacyChoices')}
               </button>
-              <a href="#" className="text-sm text-gray-600 hover:text-[#ffe000] transition-colors">Privacy Policy</a>
-              <a href="#" className="text-sm text-gray-600 hover:text-[#ffe000] transition-colors">Disclaimers and Terms of Use</a>
+              <a href="#" className="text-sm text-gray-600 transition-colors hover:text-brand-accent">
+                {t('footer.privacyPolicy')}
+              </a>
+              <a href="#" className="text-sm text-gray-600 transition-colors hover:text-brand-accent">
+                {t('footer.terms')}
+              </a>
             </div>
           </div>
         </div>

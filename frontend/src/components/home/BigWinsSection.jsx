@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function BigWinsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 5;
+  const { t } = useTranslation();
 
   return (
-    <section className="bg-[#1a2b5b] text-white py-12 md:py-16 px-4">
+    <section className="bg-brand-primary text-white py-12 md:py-16 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column */}
           <div className="flex flex-col">
             {/* Main Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              The Right Firm for Big Wins
+              {t('bigWins.title')}
             </h2>
             
             {/* Sub-heading/Description */}
             <p className="text-lg md:text-xl mb-8 text-gray-200">
-              Insurance companies know us—and they know we fight for every dollar.
+              {t('bigWins.description')}
             </p>
             
             {/* Call to Action Button */}
-            <button className="bg-[#ffe000] text-black font-bold px-6 py-4 rounded-lg hover:bg-[#e6cc00] transition-colors text-lg mb-6 w-full md:w-auto">
-              Get a free case evaluation
+            <button className="bg-brand-accent text-black font-bold px-6 py-4 rounded-lg hover:bg-brand-accentDark transition-colors text-lg mb-6 w-full md:w-auto">
+              {t('bigWins.cta')}
             </button>
             
             {/* Secondary Link */}
-            <a href="#" className="flex items-center gap-2 text-white hover:text-[#ffe000] transition-colors mb-8 group">
-              <span>See more results</span>
+            <a href="#" className="flex items-center gap-2 text-white transition-colors hover:text-brand-accent mb-8 group">
+              <span>{t('bigWins.link')}</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -35,7 +37,7 @@ export default function BigWinsSection() {
             
             {/* Legal Disclaimer */}
             <p className="text-xs text-gray-400 leading-relaxed">
-              Results may vary depending on your particular facts and legal circumstances. The attorneys shown in these photos may not be licensed in your state. To find an attorney licensed in your area, please visit our attorney page.
+              {t('bigWins.disclaimer')}
             </p>
           </div>
 
@@ -59,28 +61,31 @@ export default function BigWinsSection() {
                 {/* Case Result Overlay */}
                 <div className="absolute bottom-0 left-0 right-0">
                   {/* Top Section - Blue Background */}
-                  <div className="bg-[#007bff] text-white px-4 py-3">
+                  <div className="bg-brand-secondary text-white px-4 py-3">
                     <p className="text-sm md:text-base">
-                      Kimberly won <span className="font-bold">20x</span> what was offered
+                      <Trans
+                        i18nKey="bigWins.caseHighlight"
+                        components={[<span className="font-bold" />]}
+                      />
                     </p>
                   </div>
                   
                   {/* Bottom Section - White Background */}
-                  <div className="bg-white text-[#007bff] px-4 py-4">
+                  <div className="bg-white text-brand-secondary px-4 py-4">
                     <div className="flex items-center justify-between">
                       <div className="flex flex-col">
                         <span className="text-2xl md:text-3xl font-bold">$100,000</span>
-                        <span className="text-xs text-gray-600">insurance offer</span>
+                        <span className="text-xs text-gray-600">{t('bigWins.insuranceOffer')}</span>
                       </div>
                       
                       {/* Arrow */}
-                      <svg className="w-8 h-8 md:w-10 md:h-10 text-[#007bff]" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-8 h-8 md:w-10 md:h-10 text-brand-secondary" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                       
                       <div className="flex flex-col items-end">
                         <span className="text-2xl md:text-3xl font-bold">$1,900,878</span>
-                        <span className="text-xs text-gray-600">verdict</span>
+                        <span className="text-xs text-gray-600">{t('bigWins.verdict')}</span>
                       </div>
                     </div>
                   </div>
@@ -90,7 +95,7 @@ export default function BigWinsSection() {
             
             {/* Case Details */}
             <p className="text-white text-sm md:text-base mb-4">
-              Car Accident | Orlando, FL
+              {t('bigWins.caseDetails')}
             </p>
             
             {/* Pagination Dots */}

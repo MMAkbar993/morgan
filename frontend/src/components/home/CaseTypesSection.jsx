@@ -1,26 +1,19 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function CaseTypesSection() {
-  const caseTypes = [
-    "Social Security",
-    "Nursing Home Abuse",
-    "Dangerous Drugs",
-    "Labor & Employment",
-    "Defective Products",
-    "Truck Accidents",
-    "Medical Malpractice",
-    "Class Actions"
-  ];
+  const { t } = useTranslation();
+  const caseTypes = t('caseTypes.items', { returnObjects: true });
 
   return (
     <section className="bg-white py-12 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-0">
-            Over 50 Case Types, Like:
+            {t('caseTypes.title')}
           </h3>
           <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-            View all
+            {t('common.buttons.viewAll')}
             <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

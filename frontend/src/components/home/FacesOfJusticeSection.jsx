@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function FacesOfJusticeSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,6 +32,7 @@ export default function FacesOfJusticeSection() {
     }
   ];
   const totalSlides = attorneys.length;
+  const { t } = useTranslation();
 
   const scrollToSlide = (index) => {
     const container = scrollContainerRef.current;
@@ -60,16 +62,16 @@ export default function FacesOfJusticeSection() {
           {/* Left Column - Text Content */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
-              The Faces of Justice
+              {t('faces.title')}
             </h2>
             
             <p className="mb-8 text-lg leading-relaxed text-gray-800 md:text-xl">
-              Our 1,000+ attorneys are whip-smart, bighearted, and passionate people who wouldn't hesitate to go the extra mile for their clients.
+              {t('faces.description')}
             </p>
             
             {/* Signature Placeholder */}
             <div className="mb-6 w-full max-w-[320px]">
-              <div className="text-sm italic text-gray-400">Signature</div>
+              <div className="text-sm italic text-gray-400">{t('faces.signatureLabel')}</div>
             </div>
             
             {/* Matt Morgan Profile */}
@@ -79,8 +81,8 @@ export default function FacesOfJusticeSection() {
                 <img src="3.avif" alt="" />
               </div>
               <div>
-                <div className="font-bold text-gray-900">Matt Morgan</div>
-                <div className="text-gray-600">Managing Partner</div>
+                <div className="font-bold text-gray-900">{t('faces.profileName')}</div>
+                <div className="text-gray-600">{t('faces.profileTitle')}</div>
               </div>
             </div>
             
@@ -88,14 +90,14 @@ export default function FacesOfJusticeSection() {
               href="#"
               className="group mb-8 inline-flex items-center font-semibold text-blue-600 transition hover:text-blue-700"
             >
-              Meet our attorneys
+              {t('common.buttons.meetOurAttorneys')}
               <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </a>
             
             <p className="text-xs leading-relaxed text-gray-500">
-              The attorneys shown in these videos may not be licensed in your state. To find an attorney licensed in your area, please visit our attorney page.
+              {t('common.disclaimers.attorneyAvailability')}
             </p>
           </div>
 
@@ -106,8 +108,8 @@ export default function FacesOfJusticeSection() {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="hidden h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe000] lg:flex"
-                  aria-label="Show previous attorney"
+                  className="hidden h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent lg:flex"
+                  aria-label={t('common.aria.showPreviousAttorney')}
                 >
                   <svg className="h-6 w-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -129,7 +131,7 @@ export default function FacesOfJusticeSection() {
                     <div
                       className={`relative mb-3 overflow-hidden rounded-2xl shadow-lg aspect-[3/4] ${
                         index === currentSlide
-                          ? 'ring-4 ring-[#ffe000] ring-offset-2 ring-offset-white'
+                          ? 'ring-4 ring-brand-accent ring-offset-2 ring-offset-white'
                           : 'ring-1 ring-gray-200'
                       }`}
                     >
@@ -145,9 +147,9 @@ export default function FacesOfJusticeSection() {
                         type="button"
                         onClick={() => setCurrentSlide(index)}
                         className="group absolute inset-0 flex items-center justify-center"
-                        aria-label={`Play video for ${attorney.name}`}
+                        aria-label={t('common.aria.playVideo', { name: attorney.name })}
                       >
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ffe000] shadow-lg transition-transform group-hover:scale-110 sm:h-16 sm:w-16">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-accent shadow-lg transition-transform group-hover:scale-110 sm:h-16 sm:w-16">
                           <svg className="ml-1 h-6 w-6 text-black sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
                           </svg>
@@ -166,8 +168,8 @@ export default function FacesOfJusticeSection() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="hidden h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe000] lg:flex"
-                  aria-label="Show next attorney"
+                  className="hidden h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent lg:flex"
+                  aria-label={t('common.aria.showNextAttorney')}
                 >
                   <svg className="h-6 w-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -187,7 +189,7 @@ export default function FacesOfJusticeSection() {
                       ? 'w-8 bg-gray-900'
                       : 'w-2 bg-gray-400 hover:bg-gray-600'
                   }`}
-                  aria-label={`Go to slide ${index + 1}`}
+                  aria-label={t('common.aria.goToSlide', { index: index + 1 })}
                 />
               ))}
               <div className="mt-3 flex w-full items-center justify-center gap-4 sm:hidden">
@@ -195,7 +197,7 @@ export default function FacesOfJusticeSection() {
                   type="button"
                   onClick={handlePrev}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 shadow-sm transition hover:bg-gray-200"
-                  aria-label="Show previous attorney"
+                  aria-label={t('common.aria.showPreviousAttorney')}
                 >
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -205,7 +207,7 @@ export default function FacesOfJusticeSection() {
                   type="button"
                   onClick={handleNext}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 shadow-sm transition hover:bg-gray-200"
-                  aria-label="Show next attorney"
+                  aria-label={t('common.aria.showNextAttorney')}
                 >
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
