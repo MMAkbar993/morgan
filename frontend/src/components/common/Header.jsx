@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {
@@ -65,13 +66,15 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             <nav className="flex items-center space-x-4 xl:space-x-6">
-              <a href="#" className={navLinkSimple}>{t('header.nav.locations')}</a>
-              <a href="#" className={navLinkWithIcon}>
+              <Link to="/locations" className={navLinkSimple}>
+                {t('header.nav.locations')}
+              </Link>
+              <Link to="/practice-areas" className={navLinkWithIcon}>
                 {t('header.nav.practiceAreas')}
                 <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                 </svg>
-              </a>
+              </Link>
               <a href="#" className={navLinkSimple}>{t('header.nav.attorneys')}</a>
               <a href="#" className={navLinkWithIcon}>
                 {t('header.nav.about')}
@@ -128,8 +131,12 @@ export default function Header() {
             }`}
           >
             <nav className="flex flex-col space-y-4">
-              <a href="#" className={mobileLinkClasses}>{t('header.nav.locations')}</a>
-              <a href="#" className={mobileLinkClasses}>{t('header.nav.practiceAreas')}</a>
+              <Link to="/locations" className={mobileLinkClasses} onClick={() => setIsMenuOpen(false)}>
+                {t('header.nav.locations')}
+              </Link>
+              <Link to="/practice-areas" className={mobileLinkClasses} onClick={() => setIsMenuOpen(false)}>
+                {t('header.nav.practiceAreas')}
+              </Link>
               <a href="#" className={mobileLinkClasses}>{t('header.nav.attorneys')}</a>
               <a href="#" className={mobileLinkClasses}>{t('header.nav.about')}</a>
               <a href="#" className={mobileLinkClasses}>{t('header.nav.results')}</a>

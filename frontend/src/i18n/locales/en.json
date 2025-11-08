@@ -65,6 +65,224 @@
       "contact": "Contact"
     }
   },
+  "practiceAreas": {
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Practice Areas"
+    },
+    "hero": {
+      "headline": "Fighting for you, wherever life strikes",
+      "subheadline": "We fight for the compensation you deserve. With over 50 case types, we’re here to guide your next steps.",
+      "cards": [
+        {
+          "icon": "car",
+          "title": "Car Accidents",
+          "description": "We’ve helped thousands recover medical bills, lost wages, and more after crashes caused by negligence."
+        },
+        {
+          "icon": "slip",
+          "title": "Slip and Fall",
+          "description": "From wet floors to unsafe conditions, we fight to hold property owners accountable for your injuries."
+        },
+        {
+          "icon": "workers",
+          "title": "Workers’ Compensation",
+          "description": "We guide workers through the claims process to secure the benefits they deserve for workplace injuries."
+        }
+      ]
+    },
+    "allPracticeAreas": {
+      "title": "Practice Areas",
+      "items": [
+        "Admiralty and Maritime Law",
+        "Americans with Disabilities Act",
+        "Aviation Accident",
+        "Birth Injury",
+        "Boating Accident",
+        "Brain Injury",
+        "Breach of Contract",
+        "Burn Injury",
+        "California Wildfire",
+        "Car Accident",
+        "Catastrophic Events",
+        "Child Sexual Abuse",
+        "Class Action",
+        "Construction Accident",
+        "Construction Defect",
+        "Dangerous Drugs",
+        "Data Privacy",
+        "Defective Airbag",
+        "Depo-Provera",
+        "Discrimination",
+        "Dog Bite",
+        "Dram Shop Liability",
+        "Drowning Accident",
+        "Elder Abuse",
+        "Employee Misclassification",
+        "Experian Paid Services Lawsuit",
+        "Explosion",
+        "Family and Medical Leave Act",
+        "Hair Dye Lawsuit",
+        "Insurance Claim",
+        "Labor and Employment",
+        "Mass Arbitration",
+        "Mass Tort",
+        "Medical Malpractice",
+        "Mesothelioma",
+        "Motorcycle Accident",
+        "Negligent Security",
+        "Nursing Home Abuse",
+        "Offshore Injury",
+        "Personal Injury",
+        "Premises Liability",
+        "Product Liability",
+        "Professional Liability",
+        "Slip & Fall",
+        "Social Security Disability",
+        "Spine Injury",
+        "Toxic Air Lawsuit",
+        "Toxic and Environmental",
+        "Truck Accident",
+        "Ultra-Processed Foods",
+        "Unpaid Overtime",
+        "Veterans Benefits",
+        "Wage & Hour",
+        "Weight Loss Drug",
+        "Whistleblower & Qui Tam",
+        "Wildfire",
+        "Workers' Compensation",
+        "Wrongful Death",
+        "Wrongful Termination"
+      ]
+    },
+    "otherWays": {
+      "title": "Other Ways We Can Help",
+      "categories": [
+        "Medical Malpractice",
+        "Nursing Home Abuse",
+        "Dangerous Drugs",
+        "Defective Products",
+        "Social Security Disability",
+        "Labor & Employment"
+      ],
+      "cta": "Get Started"
+    },
+    "corporateNegligence": {
+      "title": "Cases Fighting Corporate Negligence",
+      "items": [
+        {
+          "title": "Depo-Provera",
+          "description": "Popular birth control may lead to brain and spinal tumors."
+        },
+        {
+          "title": "Toxic Baby Formula",
+          "description": "Parents are taking action over dangerous formula-linked illnesses."
+        },
+        {
+          "title": "Roundup Exposure",
+          "description": "Agricultural workers exposed to cancer-causing chemicals deserve justice."
+        }
+      ],
+      "cta": "Learn More"
+    },
+    "moreSection": {
+      "title": "More of What We Do",
+      "description": "Whatever the practice area, every case gets our strength, focus, and care."
+    }
+  },
+  "locations": {
+    "breadcrumbs": {
+      "home": "Home",
+      "current": "Locations"
+    },
+    "hero": {
+      "title": "We have an office near you",
+      "searchPlaceholder": "Enter your city, state, or zip code",
+      "searchButton": "Search",
+      "viewAll": "View all locations",
+      "localOfficeLabel": "Your Local Office",
+      "localOffice": {
+        "name": "Morgan & Morgan Anchorage",
+        "addressLines": [
+          "1577 C. Street, Suite 204-M",
+          "Anchorage, AK 99501"
+        ],
+        "phoneLabel": "Call",
+        "phone": "(907) 531-0511",
+        "cta": "View Office"
+      }
+    },
+    "remoteHelp": {
+      "title": "No office visit needed.",
+      "features": [
+        "Sign agreements digitally",
+        "Upload documents",
+        "Track case in real-time"
+      ],
+      "cta": "Start your claim"
+    },
+    "coverage": {
+      "title": "With 125 offices nationwide, we’re here to help.",
+      "description": "From coast to coast, our attorneys are ready to meet you locally or work with you virtually—whatever you need.",
+      "mapAlt": "United States map with Morgan & Morgan office locations"
+    },
+    "states": {
+      "title": "Explore our offices by state",
+      "items": [
+        { "state": "Alabama", "cities": ["Birmingham", "Huntsville", "Mobile", "Montgomery"] },
+        { "state": "Alaska", "cities": ["Anchorage"] },
+        { "state": "Arizona", "cities": ["Chandler", "Mesa", "Peoria", "Phoenix", "Tucson"] },
+        { "state": "Arkansas", "cities": ["Little Rock"] },
+        { "state": "California", "cities": ["Irvine", "Los Angeles", "Riverside", "Sacramento", "San Diego", "San Francisco"] },
+        { "state": "Colorado", "cities": ["Denver"] },
+        { "state": "Connecticut", "cities": ["Hamden", "New Haven"] },
+        { "state": "Delaware", "cities": ["Wilmington"] },
+        { "state": "Florida", "cities": ["Bradenton", "Daytona Beach", "DeLand", "Fort Lauderdale", "Fort Myers", "Gainesville", "Jacksonville", "Key West", "Kissimmee", "Lakeland", "Melbourne", "Miami", "Naples", "Ocala", "Orlando", "Palm Harbor", "Panama City", "Pensacola", "Port St. Lucie", "Sarasota", "Spring Hill", "St. Augustine", "St. Petersburg", "Tallahassee", "Tampa", "Titusville", "West Palm Beach", "Winter Haven"] },
+        { "state": "Georgia", "cities": ["Albany", "Alpharetta", "Atlanta", "Augusta", "Brunswick", "Columbus", "Macon", "Marietta", "Savannah"] },
+        { "state": "Hawaii", "cities": ["Honolulu"] },
+        { "state": "Idaho", "cities": ["Boise"] },
+        { "state": "Illinois", "cities": ["Chicago"] },
+        { "state": "Indiana", "cities": ["Indianapolis", "New Albany"] },
+        { "state": "Iowa", "cities": ["Des Moines"] },
+        { "state": "Kansas", "cities": ["Wichita"] },
+        { "state": "Kentucky", "cities": ["Bowling Green", "Lexington", "Louisville", "Owensboro", "Paducah"] },
+        { "state": "Louisiana", "cities": ["New Orleans"] },
+        { "state": "Maine", "cities": ["Portland"] },
+        { "state": "Maryland", "cities": ["Baltimore"] },
+        { "state": "Massachusetts", "cities": ["Boston", "Medford"] },
+        { "state": "Michigan", "cities": ["Detroit", "Grand Rapids"] },
+        { "state": "Minnesota", "cities": ["Minneapolis"] },
+        { "state": "Mississippi", "cities": ["Biloxi", "Hattiesburg", "Jackson"] },
+        { "state": "Missouri", "cities": ["St. Louis"] },
+        { "state": "Montana", "cities": ["Bozeman"] },
+        { "state": "Nebraska", "cities": ["Lincoln"] },
+        { "state": "Nevada", "cities": ["Henderson", "Las Vegas", "Reno"] },
+        { "state": "New Hampshire", "cities": ["Bedford"] },
+        { "state": "New Jersey", "cities": ["Jersey City", "Jersey Shore", "Mount Laurel"] },
+        { "state": "New Mexico", "cities": ["Albuquerque"] },
+        { "state": "New York", "cities": ["Bronx", "Buffalo", "New York City", "Queens"] },
+        { "state": "North Carolina", "cities": ["Charlotte", "Raleigh"] },
+        { "state": "North Dakota", "cities": ["Fargo"] },
+        { "state": "Ohio", "cities": ["Cincinnati", "Columbus", "Dayton"] },
+        { "state": "Oklahoma", "cities": ["Oklahoma City"] },
+        { "state": "Oregon", "cities": ["Portland"] },
+        { "state": "Pennsylvania", "cities": ["Philadelphia", "Pittsburgh", "Scranton"] },
+        { "state": "Rhode Island", "cities": ["Providence"] },
+        { "state": "South Carolina", "cities": ["Charleston", "Columbia", "Greenville", "Hilton Head", "Myrtle Beach"] },
+        { "state": "South Dakota", "cities": ["Sioux Falls"] },
+        { "state": "Tennessee", "cities": ["Chattanooga", "Knoxville", "Memphis", "Nashville"] },
+        { "state": "Texas", "cities": ["Dallas", "Houston"] },
+        { "state": "Utah", "cities": ["Salt Lake City"] },
+        { "state": "Vermont", "cities": ["Burlington"] },
+        { "state": "Virginia", "cities": ["Arlington", "Richmond"] },
+        { "state": "Washington", "cities": ["Seattle"] },
+        { "state": "Washington D.C.", "cities": ["Washington, D.C."] },
+        { "state": "West Virginia", "cities": ["Charleston"] },
+        { "state": "Wisconsin", "cities": ["Milwaukee"] },
+        { "state": "Wyoming", "cities": ["Cheyenne"] }
+      ]
+    }
+  },
   "hero": {
     "titleLine1": "Personal Injury Lawyers",
     "titleLine2": "Fighting For You",

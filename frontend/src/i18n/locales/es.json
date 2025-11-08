@@ -65,6 +65,224 @@
       "contact": "Contacto"
     }
   },
+  "practiceAreas": {
+    "breadcrumbs": {
+      "home": "Inicio",
+      "current": "Áreas de práctica"
+    },
+    "hero": {
+      "headline": "Luchamos por ti, donde sea que la vida golpee",
+      "subheadline": "Luchamos por la compensación que mereces. Con más de 50 tipos de casos, te guiamos en cada paso.",
+      "cards": [
+        {
+          "icon": "car",
+          "title": "Accidentes de auto",
+          "description": "Hemos ayudado a miles a recuperar gastos médicos, salarios perdidos y más después de choques causados por negligencia."
+        },
+        {
+          "icon": "slip",
+          "title": "Resbalones y caídas",
+          "description": "Desde pisos mojados hasta condiciones inseguras, responsabilizamos a los dueños de propiedades por tus lesiones."
+        },
+        {
+          "icon": "workers",
+          "title": "Compensación laboral",
+          "description": "Guiamos a los trabajadores durante el proceso de reclamaciones para obtener los beneficios que merecen por lesiones laborales."
+        }
+      ]
+    },
+    "allPracticeAreas": {
+      "title": "Áreas de práctica",
+      "items": [
+        "Derecho marítimo y de almirantazgo",
+        "Ley de Estadounidenses con Discapacidades",
+        "Accidente de aviación",
+        "Lesión de nacimiento",
+        "Accidente en bote",
+        "Lesión cerebral",
+        "Incumplimiento de contrato",
+        "Lesión por quemaduras",
+        "Incendios en California",
+        "Accidente automovilístico",
+        "Eventos catastróficos",
+        "Abuso sexual infantil",
+        "Acción colectiva",
+        "Accidente de construcción",
+        "Defecto de construcción",
+        "Medicamentos peligrosos",
+        "Privacidad de datos",
+        "Airbags defectuosos",
+        "Depo-Provera",
+        "Discriminación",
+        "Mordedura de perro",
+        "Responsabilidad de bares",
+        "Accidente por ahogamiento",
+        "Abuso a personas mayores",
+        "Clasificación errónea de empleados",
+        "Demanda de servicios pagos de Experian",
+        "Explosiones",
+        "Ley de licencia familiar y médica",
+        "Demanda por tintes para el cabello",
+        "Reclamaciones de seguros",
+        "Laboral y empleo",
+        "Arbitraje masivo",
+        "Demandas masivas",
+        "Negligencia médica",
+        "Mesotelioma",
+        "Accidente de motocicleta",
+        "Seguridad negligente",
+        "Abuso en asilos",
+        "Lesiones en alta mar",
+        "Lesiones personales",
+        "Responsabilidad de locales",
+        "Responsabilidad por productos",
+        "Responsabilidad profesional",
+        "Resbalones y caídas",
+        "Discapacidad del Seguro Social",
+        "Lesión de columna",
+        "Demandas por aire tóxico",
+        "Casos tóxicos y ambientales",
+        "Accidente de camión",
+        "Alimentos ultraprocesados",
+        "Horas extras no pagadas",
+        "Beneficios para veteranos",
+        "Salarios y horas",
+        "Medicamentos para bajar de peso",
+        "Denunciantes y Qui Tam",
+        "Incendios forestales",
+        "Compensación laboral",
+        "Muerte por negligencia",
+        "Despido injustificado"
+      ]
+    },
+    "otherWays": {
+      "title": "Otras maneras en que podemos ayudar",
+      "categories": [
+        "Negligencia médica",
+        "Abuso en asilos",
+        "Medicamentos peligrosos",
+        "Productos defectuosos",
+        "Discapacidad del Seguro Social",
+        "Laboral y empleo"
+      ],
+      "cta": "Comienza ahora"
+    },
+    "corporateNegligence": {
+      "title": "Casos contra la negligencia corporativa",
+      "items": [
+        {
+          "title": "Depo-Provera",
+          "description": "Un anticonceptivo popular puede causar tumores cerebrales y espinales."
+        },
+        {
+          "title": "Fórmula infantil tóxica",
+          "description": "Padres toman acción por enfermedades vinculadas a fórmulas peligrosas."
+        },
+        {
+          "title": "Exposición a Roundup",
+          "description": "Trabajadores agrícolas expuestos a químicos cancerígenos merecen justicia."
+        }
+      ],
+      "cta": "Más información"
+    },
+    "moreSection": {
+      "title": "Más de lo que hacemos",
+      "description": "Sin importar el área de práctica, cada caso recibe nuestra fuerza, enfoque y cuidado."
+    }
+  },
+  "locations": {
+    "breadcrumbs": {
+      "home": "Inicio",
+      "current": "Oficinas"
+    },
+    "hero": {
+      "title": "Tenemos una oficina cerca de ti",
+      "searchPlaceholder": "Ingresa tu ciudad, estado o código postal",
+      "searchButton": "Buscar",
+      "viewAll": "Ver todas las oficinas",
+      "localOfficeLabel": "Tu oficina local",
+      "localOffice": {
+        "name": "Morgan & Morgan Anchorage",
+        "addressLines": [
+          "1577 C. Street, Suite 204-M",
+          "Anchorage, AK 99501"
+        ],
+        "phoneLabel": "Llamar",
+        "phone": "(907) 531-0511",
+        "cta": "Ver oficina"
+      }
+    },
+    "remoteHelp": {
+      "title": "No necesitas visitar la oficina.",
+      "features": [
+        "Firma acuerdos de forma digital",
+        "Carga documentos",
+        "Sigue tu caso en tiempo real"
+      ],
+      "cta": "Inicia tu reclamación"
+    },
+    "coverage": {
+      "title": "Con 125 oficinas en todo el país, estamos listos para ayudarte.",
+      "description": "De costa a costa, nuestros abogados pueden reunirse contigo en persona o trabajar de forma virtual: lo que necesites.",
+      "mapAlt": "Mapa de Estados Unidos con oficinas de Morgan & Morgan"
+    },
+    "states": {
+      "title": "Explora nuestras oficinas por estado",
+      "items": [
+        { "state": "Alabama", "cities": ["Birmingham", "Huntsville", "Mobile", "Montgomery"] },
+        { "state": "Alaska", "cities": ["Anchorage"] },
+        { "state": "Arizona", "cities": ["Chandler", "Mesa", "Peoria", "Phoenix", "Tucson"] },
+        { "state": "Arkansas", "cities": ["Little Rock"] },
+        { "state": "California", "cities": ["Irvine", "Los Ángeles", "Riverside", "Sacramento", "San Diego", "San Francisco"] },
+        { "state": "Colorado", "cities": ["Denver"] },
+        { "state": "Connecticut", "cities": ["Hamden", "New Haven"] },
+        { "state": "Delaware", "cities": ["Wilmington"] },
+        { "state": "Florida", "cities": ["Bradenton", "Daytona Beach", "DeLand", "Fort Lauderdale", "Fort Myers", "Gainesville", "Jacksonville", "Key West", "Kissimmee", "Lakeland", "Melbourne", "Miami", "Naples", "Ocala", "Orlando", "Palm Harbor", "Panama City", "Pensacola", "Port St. Lucie", "Sarasota", "Spring Hill", "St. Augustine", "St. Petersburg", "Tallahassee", "Tampa", "Titusville", "West Palm Beach", "Winter Haven"] },
+        { "state": "Georgia", "cities": ["Albany", "Alpharetta", "Atlanta", "Augusta", "Brunswick", "Columbus", "Macon", "Marietta", "Savannah"] },
+        { "state": "Hawái", "cities": ["Honolulu"] },
+        { "state": "Idaho", "cities": ["Boise"] },
+        { "state": "Illinois", "cities": ["Chicago"] },
+        { "state": "Indiana", "cities": ["Indianápolis", "New Albany"] },
+        { "state": "Iowa", "cities": ["Des Moines"] },
+        { "state": "Kansas", "cities": ["Wichita"] },
+        { "state": "Kentucky", "cities": ["Bowling Green", "Lexington", "Louisville", "Owensboro", "Paducah"] },
+        { "state": "Luisiana", "cities": ["Nueva Orleans"] },
+        { "state": "Maine", "cities": ["Portland"] },
+        { "state": "Maryland", "cities": ["Baltimore"] },
+        { "state": "Massachusetts", "cities": ["Boston", "Medford"] },
+        { "state": "Míchigan", "cities": ["Detroit", "Grand Rapids"] },
+        { "state": "Minnesota", "cities": ["Mineápolis"] },
+        { "state": "Misisipi", "cities": ["Biloxi", "Hattiesburg", "Jackson"] },
+        { "state": "Misuri", "cities": ["San Luis"] },
+        { "state": "Montana", "cities": ["Bozeman"] },
+        { "state": "Nebraska", "cities": ["Lincoln"] },
+        { "state": "Nevada", "cities": ["Henderson", "Las Vegas", "Reno"] },
+        { "state": "New Hampshire", "cities": ["Bedford"] },
+        { "state": "Nueva Jersey", "cities": ["Jersey City", "Jersey Shore", "Mount Laurel"] },
+        { "state": "Nuevo México", "cities": ["Albuquerque"] },
+        { "state": "Nueva York", "cities": ["Bronx", "Búfalo", "Nueva York", "Queens"] },
+        { "state": "Carolina del Norte", "cities": ["Charlotte", "Raleigh"] },
+        { "state": "Dakota del Norte", "cities": ["Fargo"] },
+        { "state": "Ohio", "cities": ["Cincinnati", "Columbus", "Dayton"] },
+        { "state": "Oklahoma", "cities": ["Oklahoma City"] },
+        { "state": "Oregón", "cities": ["Portland"] },
+        { "state": "Pensilvania", "cities": ["Filadelfia", "Pittsburgh", "Scranton"] },
+        { "state": "Rhode Island", "cities": ["Providence"] },
+        { "state": "Carolina del Sur", "cities": ["Charleston", "Columbia", "Greenville", "Hilton Head", "Myrtle Beach"] },
+        { "state": "Dakota del Sur", "cities": ["Sioux Falls"] },
+        { "state": "Tennessee", "cities": ["Chattanooga", "Knoxville", "Memphis", "Nashville"] },
+        { "state": "Texas", "cities": ["Dallas", "Houston"] },
+        { "state": "Utah", "cities": ["Salt Lake City"] },
+        { "state": "Vermont", "cities": ["Burlington"] },
+        { "state": "Virginia", "cities": ["Arlington", "Richmond"] },
+        { "state": "Washington", "cities": ["Seattle"] },
+        { "state": "Washington D. C.", "cities": ["Washington D. C."] },
+        { "state": "Virginia Occidental", "cities": ["Charleston"] },
+        { "state": "Wisconsin", "cities": ["Milwaukee"] },
+        { "state": "Wyoming", "cities": ["Cheyenne"] }
+      ]
+    }
+  },
   "hero": {
     "titleLine1": "Abogados de lesiones personales",
     "titleLine2": "Luchamos por ti",

@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import Home from './pages/home';
+import PracticeAreas from './pages/practice-areas';
+import Locations from './pages/locations';
 import { INTEGRATIONS } from './config/integrations';
 
 export default function App() {
@@ -71,6 +73,8 @@ export default function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/practice-areas" element={<PracticeAreas />} />
+            <Route path="/locations" element={<Locations />} />
           </Routes>
         </main>
         <Footer />
