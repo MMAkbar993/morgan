@@ -4,33 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const { t, i18n } = useTranslation();
   const isSpanish = i18n.language.startsWith('es');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('lang', i18n.language);
   }, [i18n.language]);
 
-  const navLinkBase = 'transition-colors text-sm';
-  const navLinkColor = isScrolled ? 'text-gray-900 hover:text-brand-primary' : 'text-white hover:text-brand-accent';
-  const navLinkWithIcon = `${navLinkBase} ${navLinkColor} flex items-center`;
-  const navLinkSimple = `${navLinkBase} ${navLinkColor}`;
-  const iconButtonClasses = isScrolled
-    ? 'text-gray-900 hover:text-brand-primary'
-    : 'text-white hover:text-brand-accent';
-  const mobileLinkClasses = `${navLinkBase} ${navLinkColor}`;
+  const navLinkBase =
+    'text-white text-sm font-semibold tracking-wide uppercase transition-colors duration-200 hover:text-[#f5d000] flex items-center';
 
   const toggleLanguage = () => {
     const nextLanguage = isSpanish ? 'en' : 'es';
@@ -38,124 +20,117 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'bg-white text-gray-900 shadow-md' : 'bg-brand-primary text-white'
-      }`}
-    >
-      <div className="container mx-auto px-4 py-3 transition-colors duration-300">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex flex-col">
-            <div className="border-2 border-black outline outline-1 outline-brand-accent px-3 py-1.5 inline-block">
-              <div className="text-brand-accent font-bold text-sm md:text-lg tracking-tight">
+    <header className="sticky top-0 z-50 bg-[#0a2043] text-white">
+      <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4">
+        {/* Logo */}
+        <div className="flex items-center">
+          <div className="flex flex-col items-center md:items-start">
+            <div className="inline-flex items-center border-2 border-black bg-black px-4 py-1.5">
+              <span className="text-[#f5d000] text-lg font-black leading-none tracking-tight">
                 {t('header.logo')}
-              </div>
-            </div>
-            <div className="mt-1 text-xs hidden md:block">
-              <span className={isScrolled ? 'text-gray-900' : 'text-white'}>
-                {t('header.tagline.prefix')}
-              </span>
-              <span className="text-brand-accent font-semibold">{t('header.tagline.highlight')}</span>
-              <span className={isScrolled ? 'text-gray-900' : 'text-white'}>
-                {t('header.tagline.suffix')}
               </span>
             </div>
+            <p className="mt-1 hidden text-xs font-semibold tracking-wide text-white md:block">
+              {t('header.tagline.prefix')}{' '}
+              <span className="text-[#f5d000]">{t('header.tagline.highlight')}</span>{' '}
+              {t('header.tagline.suffix')}
+            </p>
           </div>
+        </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <nav className="flex items-center space-x-4 xl:space-x-6">
-              <Link to="/locations" className={navLinkSimple}>
-                {t('header.nav.locations')}
-              </Link>
-              <Link to="/practice-areas" className={navLinkWithIcon}>
-                {t('header.nav.practiceAreas')}
-                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
-              </Link>
-              <a href="#" className={navLinkSimple}>{t('header.nav.attorneys')}</a>
-              <a href="#" className={navLinkWithIcon}>
-                {t('header.nav.about')}
-                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <a href="#" className={navLinkSimple}>{t('header.nav.results')}</a>
-              <a href="#" className={navLinkSimple}>{t('header.nav.contact')}</a>
-            </nav>
-
-            {/* Search Icon */}
-            <button className={`${iconButtonClasses} transition-colors`}>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Desktop Navigation */}
+        <div className="hidden flex-1 items-center justify-end lg:flex">
+          <nav className="flex items-center gap-6">
+            <Link to="/locations" className={navLinkBase}>
+              {t('header.nav.locations')}
+            </Link>
+            <Link to="/practice-areas" className={navLinkBase}>
+              {t('header.nav.practiceAreas')}
+              <span className="ml-1 text-base">›</span>
+            </Link>
+            <a href="#" className={navLinkBase}>
+              {t('header.nav.attorneys')}
+            </a>
+            <a href="#" className={navLinkBase}>
+              {t('header.nav.about')}
+              <span className="ml-1 text-base">›</span>
+            </a>
+            <a href="#" className={navLinkBase}>
+              {t('header.nav.results')}
+            </a>
+            <a href="#" className={navLinkBase}>
+              {t('header.nav.contact')}
+            </a>
+            <button className="ml-4 text-white transition-colors duration-200 hover:text-[#f5d000]">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
-
-            {/* Phone Number */}
-            <div className="text-brand-accent font-bold text-lg xl:text-2xl">
+            <div className="ml-6 text-xl font-black tracking-tight text-[#f5d000]">
               {t('common.phone')}
             </div>
-
-            {/* Free Case Review Button */}
-            <button className="bg-brand-accent text-black font-bold px-3 xl:px-4 py-2 rounded hover:bg-brand-accentDark transition-colors text-sm xl:text-base">
-              {t('common.buttons.freeCaseReview')}
-            </button>
-
             <button
               type="button"
               onClick={toggleLanguage}
-              className="ml-2 rounded-full border border-current px-3 py-1 text-sm font-semibold transition hover:bg-white/10"
+              className="ml-4 rounded-full border border-white/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:bg-white/10"
             >
               {isSpanish ? t('common.language.toEnglish') : t('common.language.toSpanish')}
             </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className={`lg:hidden transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          </nav>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div
-            className={`lg:hidden mt-4 pb-4 border-t ${
-              isScrolled ? 'border-gray-200' : 'border-white/20'
-            }`}
-          >
-            <nav className="flex flex-col space-y-4">
-              <Link to="/locations" className={mobileLinkClasses} onClick={() => setIsMenuOpen(false)}>
-                {t('header.nav.locations')}
-              </Link>
-              <Link to="/practice-areas" className={mobileLinkClasses} onClick={() => setIsMenuOpen(false)}>
-                {t('header.nav.practiceAreas')}
-              </Link>
-              <a href="#" className={mobileLinkClasses}>{t('header.nav.attorneys')}</a>
-              <a href="#" className={mobileLinkClasses}>{t('header.nav.about')}</a>
-              <a href="#" className={mobileLinkClasses}>{t('header.nav.results')}</a>
-              <a href="#" className={mobileLinkClasses}>{t('header.nav.contact')}</a>
-              <div className="font-bold text-lg text-brand-accent">{t('common.phone')}</div>
-              <button className="bg-brand-accent text-black font-bold px-4 py-2 rounded hover:bg-brand-accentDark transition-colors w-full">
-                {t('common.buttons.freeCaseReview')}
-              </button>
-              <button
-                type="button"
-                onClick={toggleLanguage}
-                className="rounded-full border border-current px-3 py-2 text-sm font-semibold transition hover:bg-white/10"
-              >
-                {isSpanish ? t('common.language.toEnglish') : t('common.language.toSpanish')}
-              </button>
-            </nav>
-          </div>
-        )}
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-white transition-colors duration-200 hover:text-[#f5d000]"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden border-t border-white/20 bg-[#0a2043] px-4 pb-6">
+          <nav className="flex flex-col space-y-4 pt-4">
+            <Link
+              to="/locations"
+              className="text-white text-sm font-semibold uppercase tracking-wide"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('header.nav.locations')}
+            </Link>
+            <Link
+              to="/practice-areas"
+              className="text-white text-sm font-semibold uppercase tracking-wide"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('header.nav.practiceAreas')}
+            </Link>
+            <a href="#" className="text-white text-sm font-semibold uppercase tracking-wide">
+              {t('header.nav.attorneys')}
+            </a>
+            <a href="#" className="text-white text-sm font-semibold uppercase tracking-wide">
+              {t('header.nav.about')}
+            </a>
+            <a href="#" className="text-white text-sm font-semibold uppercase tracking-wide">
+              {t('header.nav.results')}
+            </a>
+            <a href="#" className="text-white text-sm font-semibold uppercase tracking-wide">
+              {t('header.nav.contact')}
+            </a>
+            <div className="pt-2 text-lg font-black text-[#f5d000]">{t('common.phone')}</div>
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="w-max rounded-full border border-white/40 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:bg-white/10"
+            >
+              {isSpanish ? t('common.language.toEnglish') : t('common.language.toSpanish')}
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
