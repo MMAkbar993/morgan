@@ -12,7 +12,7 @@ export default function Header() {
   }, [i18n.language]);
 
   const navLinkBase =
-    'text-white text-sm font-semibold tracking-wide uppercase transition-colors duration-200 hover:text-[#f5d000] flex items-center';
+    'text-white text-sm font-semibold transition-colors duration-200 hover:text-[#f5d000] flex items-center';
 
   const toggleLanguage = () => {
     const nextLanguage = isSpanish ? 'en' : 'es';
@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#0a2043] text-white">
-      <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4">
+      <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-3">
         {/* Logo */}
         <div className="flex items-center">
           <div className="flex flex-col items-center md:items-start">

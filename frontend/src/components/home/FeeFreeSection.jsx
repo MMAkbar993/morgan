@@ -47,18 +47,18 @@ export default function FeeFreeSection() {
   const caseTypes = t('feeFree.caseTypes', { returnObjects: true });
 
   return (
-    <section className="bg-brand-primary text-white py-12 px-4">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+    <section className="bg-[#0a2043] px-4 py-12 text-white md:py-16">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,500px)] lg:items-start lg:gap-16">
           {/* Left Column */}
           <div className="flex flex-col">
             {/* Header Text */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h1 className="mb-4 text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-[56px] lg:leading-[1.05]">
               {t('feeFree.heading')}
             </h1>
 
             {/* Call to Action */}
-            <p className="text-lg md:text-xl mb-6">
+            <p className="mb-8 text-lg font-semibold md:text-xl">
               <Trans
                 i18nKey="feeFree.subheading"
                 components={[<span className="underline font-semibold" />]}
@@ -66,17 +66,16 @@ export default function FeeFreeSection() {
             </p>
 
             {/* Video Player */}
-            <div className="relative mb-8 w-full max-w-lg">
-              <div className="relative bg-gray-300 rounded-lg overflow-hidden aspect-video">
+            <div className="relative mb-10 w-full max-w-lg md:max-w-xl">
+              <div className="relative aspect-video overflow-hidden rounded-2xl bg-[#102a59] shadow-[0_20px_45px_rgba(0,0,0,0.35)]">
                 {/* Video Thumbnail Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-                  {/* <div className="text-gray-500 text-sm"><img src="" alt="" /></div> */}
-                  <img src="16.webp" alt={t('feeFree.videoAlt')} />
+                <div className="absolute inset-0">
+                  <img src="16.webp" alt={t('feeFree.videoAlt')} className="h-full w-full object-cover" />
                 </div>
                 {/* Play Button */}
-                <button className="absolute inset-0 flex items-center justify-center group">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-accent rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg className="w-8 h-8 md:w-10 md:h-10 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <button className="group absolute inset-0 flex items-center justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#f5d000] shadow-[0_12px_25px_rgba(0,0,0,0.4)] transition-transform group-hover:scale-110 md:h-20 md:w-20">
+                    <svg className="ml-1 h-8 w-8 text-black md:h-10 md:w-10" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
@@ -85,21 +84,23 @@ export default function FeeFreeSection() {
             </div>
 
             {/* As seen on */}
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <span className="text-sm md:text-base whitespace-nowrap">{t('feeFree.asSeenOn')}</span>
-              <div className="flex flex-wrap items-center gap-4 md:gap-6">
-                <span className="text-sm md:text-base font-semibold">ABC NEWS</span>
-                <span className="text-sm md:text-base font-semibold">CNN</span>
-                <span className="text-sm md:text-base font-semibold">USA TODAY</span>
-                <span className="text-sm md:text-base font-semibold">FOX</span>
-                <span className="text-sm md:text-base font-semibold">NBC NEWS</span>
+            <div className="flex flex-col gap-3 md:flex-row md:items-center">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80 md:text-xs lg:text-sm">
+                {t('feeFree.asSeenOn')}
+              </span>
+              <div className="flex flex-wrap items-center gap-5 text-sm font-semibold tracking-wide text-white/80 md:text-base">
+                <span>ABC NEWS</span>
+                <span>CNN</span>
+                <span>USA TODAY</span>
+                <span>FOX</span>
+                <span>NBC NEWS</span>
               </div>
             </div>
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="flex flex-col rounded-lg border border-white/30 bg-white/5 p-5 sm:p-6 backdrop-blur">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+          <div className="w-full max-w-md rounded-3xl border border-white/20  p-[32px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur">
+            <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
               {t('feeFree.formTitle')}
             </h2>
 
@@ -203,7 +204,7 @@ export default function FeeFreeSection() {
               </div>
 
               {/* Terms & Privacy */}
-              <p className="text-xs text-gray-300">
+              <p className="text-xs text-white/70">
                 {t('common.form.terms')}
               </p>
 
@@ -242,7 +243,7 @@ export default function FeeFreeSection() {
               </div>
 
               {/* Copyright Notice */}
-              <p className="text-xs text-gray-400 text-center mt-4">
+              <p className="mt-4 text-center text-xs text-white/60">
                 {t('common.disclaimers.copyright')}
               </p>
             </form>
