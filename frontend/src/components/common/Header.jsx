@@ -23,6 +23,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-[#0a2043] text-white">
       <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-3">
         {/* Logo */}
+        <a href="/">
         <div className="flex items-center">
           <div className="flex flex-col items-center md:items-start">
             <div className="inline-flex items-center border-2 border-black bg-black px-4 py-1.5">
@@ -37,6 +38,7 @@ export default function Header() {
             </p>
           </div>
         </div>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden flex-1 items-center justify-end lg:flex">

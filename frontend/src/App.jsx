@@ -6,6 +6,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import Home from './pages/home';
 import PracticeAreas from './pages/practice-areas';
 import Locations from './pages/locations';
+import AutoAccidentCalculator from './pages/auto-accident-calculator';
 import { INTEGRATIONS } from './config/integrations';
 
 export default function App() {
@@ -77,6 +78,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
             <Route path="/locations" element={<Locations />} />
+            <Route path="/auto-accident-calculator" element={<AutoAccidentCalculator />} />
           </Routes>
         </main>
         <Footer />

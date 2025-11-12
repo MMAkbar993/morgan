@@ -10,6 +10,8 @@ import FightingForPeopleSection from '../components/home/FightingForPeopleSectio
 import WeKnowYourPainSection from '../components/home/WeKnowYourPainSection';
 import InsightsResourcesSection from '../components/home/InsightsResourcesSection';
 import FeeFreeFormSection from '../components/home/FeeFreeFormSection';
+import GetJusticeStepsSection from '../components/home/GetJusticeStepsSection';
+import ReviewsSection from '../components/home/ReviewsSection';
 
 export default function Home() {
   return (
@@ -17,11 +19,13 @@ export default function Home() {
       <FeeFreeSection />
       <HeroSection />
 
+      <GetJusticeStepsSection />
       <BigWinsSection />
       <WaysWeCanHelpSection />
       <CaseTypesSection />
       <FacesOfJusticeSection />
       <CompensationSection />
+      <ReviewsSection />
       <HowItWorksSection />
 
       <FightingForPeopleSection />

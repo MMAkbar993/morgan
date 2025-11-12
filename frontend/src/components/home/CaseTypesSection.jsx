@@ -1,32 +1,37 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+const CHECK_ICON = (
+  <svg className="h-4 w-4 text-[#0a2043]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+);
+
 export default function CaseTypesSection() {
   const { t } = useTranslation();
   const caseTypes = t('caseTypes.items', { returnObjects: true });
 
   return (
-    <section className="bg-white py-12 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-          <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-0">
-            {t('caseTypes.title')}
-          </h3>
-          <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
+    <section className="bg-[#f6f7fb] px-4 py-14">
+      <div className="mx-auto flex max-w-4xl flex-col overflow-hidden rounded-2xl border border-[#e2e7f2] bg-white shadow-[0_18px_45px_-25px_rgba(9,38,85,0.25)]">
+        <header className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e7f2] px-6 py-5">
+          <h3 className="text-lg font-semibold text-[#0f1b33] md:text-xl">{t('caseTypes.title')}</h3>
+          <a
+            href="/practice-areas"
+            className="inline-flex items-center text-sm font-semibold uppercase tracking-wide text-[#0a2043] transition hover:text-[#f5d000]"
+          >
             {t('common.buttons.viewAll')}
-            <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <span className="ml-1 text-base">›</span>
           </a>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-4">
-          {caseTypes.map((caseType, index) => (
-            <div key={index} className="flex items-center gap-3">
-              <svg className="w-5 h-5 text-black flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-gray-800">{caseType}</span>
+        </header>
+
+        <div className="grid grid-cols-1 gap-x-6 gap-y-4 px-6 py-6 text-sm text-[#0f1b33] sm:grid-cols-2 lg:grid-cols-3">
+          {caseTypes.map((caseType) => (
+            <div key={caseType} className="flex items-start gap-2">
+              <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#f0f3ff]">
+                {CHECK_ICON}
+              </span>
+              <span className="font-semibold">{caseType}</span>
             </div>
           ))}
         </div>

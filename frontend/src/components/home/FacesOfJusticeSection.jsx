@@ -1,81 +1,54 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function FacesOfJusticeSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
-  const scrollContainerRef = useRef(null);
-  const attorneys = [
-    {
-      name: "Ashley Winstead",
-      title: "Trial Attorney, Jacksonville",
-      image: "2.avif"
-    },
-    {
-      name: "Jason Miller",
-      title: "Managing Partner, Jacksonville",
-      image: "3.avif"
-    },
-    {
-      name: "Jac",
-      title: "Trial Attorney",
-      image: "1.avif"
-    },
-    {
-      name: "Attorney 4",
-      title: "Trial Attorney",
-      image: "4.avif"
-    },
-    {
-      name: "Attorney 5",
-      title: "Trial Attorney",
-      image: "8.webp"
-    }
-  ];
-  const totalSlides = attorneys.length;
   const { t } = useTranslation();
+  const attorneys = useMemo(
+    () => [
+      { name: 'Ashley Winstead', title: 'Trial Attorney, Jacksonville', image: '2.avif' },
+      { name: 'Jason Miller', title: 'Managing Partner, Jacksonville', image: '3.avif' },
+      { name: 'Jac', title: 'Trial Attorney', image: '1.avif' },
+      { name: 'Attorney 4', title: 'Trial Attorney', image: '4.avif' },
+      { name: 'Attorney 5', title: 'Trial Attorney', image: '8.webp' },
+      { name: 'Attorney 6', title: 'Trial Attorney', image: '16.webp' },
+    ],
+    [],
+  );
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(1);
+  const totalSlides = attorneys.length;
+  const maxSlideIndex = Math.max(0, totalSlides - cardsPerView);
 
-  const scrollToSlide = (index) => {
-    if (isLargeScreen) return;
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth >= 1280) {
+        setCardsPerView(3);
+      } else if (window.innerWidth >= 992) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(1);
+      }
+    };
 
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const slide = container.children[index];
-    if (!slide) return;
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
 
-    const offsetLeft = slide.offsetLeft;
-    const containerWidth = container.clientWidth;
-    const slideWidth = slide.clientWidth;
-    const targetScrollLeft = Math.max(offsetLeft - (containerWidth - slideWidth) / 2, 0);
-
-    container.scrollTo({
-      left: targetScrollLeft,
-      behavior: 'smooth',
-    });
-  };
+  useEffect(() => {
+    setCurrentSlide((prev) => Math.min(prev, maxSlideIndex));
+  }, [maxSlideIndex]);
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    setCurrentSlide((prev) => (prev >= maxSlideIndex ? 0 : prev + 1));
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+    setCurrentSlide((prev) => (prev <= 0 ? maxSlideIndex : prev - 1));
   };
 
-  useEffect(() => {
-    scrollToSlide(currentSlide);
-  }, [currentSlide, isLargeScreen]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const slideOffsetPercent = currentSlide * (100 / cardsPerView);
+  const cardWidthPercent = useMemo(() => 100 / cardsPerView, [cardsPerView]);
 
   return (
     <section className="bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-10 xl:px-12">
@@ -91,10 +64,7 @@ export default function FacesOfJusticeSection() {
               {t('faces.description')}
             </p>
             
-            {/* Signature Placeholder */}
-            <div className="mb-6 w-full max-w-xs sm:max-w-sm md:max-w-md">
-              <div className="text-sm italic text-gray-400">{t('faces.signatureLabel')}</div>
-            </div>
+            <SignatureGraphic />
             
             {/* Matt Morgan Profile */}
             <div className="mb-8 flex w-full max-w-lg flex-col items-center gap-4 sm:flex-row sm:items-center">
@@ -126,156 +96,136 @@ export default function FacesOfJusticeSection() {
           {/* Right Column - Video Thumbnails */}
           <div className="flex flex-col">
             <div className="relative mb-8">
-              {!isLargeScreen && (
-                <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between px-2 sm:px-4">
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent sm:h-12 sm:w-12"
-                    aria-label={t('common.aria.showPreviousAttorney')}
-                  >
-                    <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent sm:h-12 sm:w-12"
-                    aria-label={t('common.aria.showNextAttorney')}
-                  >
-                    <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              )}
+              <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between px-1 sm:px-2">
+                <CarouselButton direction="prev" onClick={handlePrev} label={t('common.aria.showPreviousAttorney')} />
+                <CarouselButton direction="next" onClick={handleNext} label={t('common.aria.showNextAttorney')} />
+              </div>
 
-              <div
-                ref={scrollContainerRef}
-                className={`gap-5 pb-5 ${
-                  isLargeScreen
-                    ? 'grid grid-cols-2 justify-items-center lg:grid-cols-2 xl:grid-cols-3'
-                    : 'flex snap-x snap-mandatory overflow-x-auto scrollbar-hide'
-                }`}
-              >
-                {attorneys.map((attorney, index) => (
-                  <div
-                    key={index}
-                    className={`transition-transform duration-200 ${
-                      isLargeScreen
-                        ? 'flex w-full max-w-xs flex-col'
-                        : 'w-[80vw] flex-shrink-0 snap-center sm:w-64 md:w-72'
-                    } ${index === currentSlide ? 'scale-[1.02]' : 'scale-100'}`}
-                  >
-                    <div
-                      className={`relative mb-3 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg ${
-                        index === currentSlide
-                          ? 'ring-4 ring-brand-accent ring-offset-2 ring-offset-white'
-                          : 'ring-1 ring-gray-200'
-                      }`}
-                    >
-                      <img
-                        src={`/${attorney.image}`}
-                        alt={attorney.name}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
-
-                      {/* Play Button */}
-                      <button
-                        type="button"
-                        onClick={() => setCurrentSlide(index)}
-                        className="group absolute inset-0 flex items-center justify-center"
-                        aria-label={t('common.aria.playVideo', { name: attorney.name })}
+              <div className="overflow-hidden rounded-3xl">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${slideOffsetPercent}%)` }}
+                >
+                  {attorneys.map((attorney, index) => {
+                    const isActive = index >= currentSlide && index < currentSlide + cardsPerView;
+                    return (
+                      <div
+                        key={attorney.name}
+                        style={{ flex: `0 0 ${cardWidthPercent}%` }}
+                        className="box-border px-2 py-3 sm:px-3"
                       >
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-accent shadow-lg transition-transform group-hover:scale-110 sm:h-16 sm:w-16">
-                          <svg className="ml-1 h-6 w-6 text-black sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
+                        <div
+                          className={`relative mb-3 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg transition ${
+                            isActive
+                              ? 'ring-4 ring-brand-accent ring-offset-2 ring-offset-white'
+                              : 'ring-1 ring-gray-200'
+                          }`}
+                        >
+                          <img
+                            src={`/${attorney.image}`}
+                            alt={attorney.name}
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+
+                          <button
+                            type="button"
+                            onClick={() => setCurrentSlide(index)}
+                            className="group absolute inset-0 flex items-center justify-center"
+                            aria-label={t('common.aria.playVideo', { name: attorney.name })}
+                          >
+                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-accent shadow-lg transition-transform group-hover:scale-110 sm:h-16 sm:w-16">
+                              <svg className="ml-1 h-6 w-6 text-black sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </button>
                         </div>
-                      </button>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-bold text-gray-900">{attorney.name}</div>
-                      <div className="text-sm text-gray-600">{attorney.title}</div>
-                    </div>
-                  </div>
-                ))}
+                        <div className="text-center">
+                          <div className="font-bold text-gray-900">{attorney.name}</div>
+                          <div className="text-sm text-gray-600">{attorney.title}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-            
-            {/* Pagination Dots */}
-            {!isLargeScreen && (
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                {attorneys.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`h-2 rounded-full transition-all ${
-                      index === currentSlide
-                        ? 'w-8 bg-gray-900'
-                        : 'w-2 bg-gray-400 hover:bg-gray-600'
-                    }`}
-                    aria-label={t('common.aria.goToSlide', { index: index + 1 })}
-                  />
-                ))}
-                <div className="mt-3 flex w-full items-center justify-center gap-4 sm:hidden">
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 shadow-sm transition hover:bg-gray-200"
-                    aria-label={t('common.aria.showPreviousAttorney')}
-                  >
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 shadow-sm transition hover:bg-gray-200"
-                    aria-label={t('common.aria.showNextAttorney')}
-                  >
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            )}
 
-            {isLargeScreen && (
-              <div className="mt-6 flex items-center justify-center gap-4">
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
-                  aria-label={t('common.aria.showPreviousAttorney')}
-                >
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <div className="text-sm font-semibold text-gray-700">
-                  {t('common.labels.slideCounter', { current: currentSlide + 1, total: totalSlides })}
-                </div>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
-                  aria-label={t('common.aria.showNextAttorney')}
-                >
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+            <div className="flex flex-col items-center gap-3">
+              <div className="flex items-center justify-center gap-2">
+                {Array.from({ length: maxSlideIndex + 1 }).map((_, index) => {
+                  const isActive = index === currentSlide;
+                  return (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setCurrentSlide(index)}
+                      className={`h-2.5 rounded-full transition-all ${
+                        isActive ? 'w-8 bg-gray-900' : 'w-2.5 bg-gray-400 hover:bg-gray-500'
+                      }`}
+                      aria-label={t('common.aria.goToSlide', { index: index + 1 })}
+                      aria-pressed={isActive}
+                    >
+                      <span className="sr-only">{`Slide ${index + 1}`}</span>
+                    </button>
+                  );
+                })}
               </div>
-            )}
+              <div className="text-sm font-semibold text-gray-700">
+                {currentSlide + 1} / {maxSlideIndex + 1}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function CarouselButton({ direction, onClick, label }) {
+  const isPrev = direction === 'prev';
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent sm:h-12 sm:w-12"
+      aria-label={label}
+    >
+      <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {isPrev ? (
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        ) : (
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
+function SignatureGraphic() {
+  return (
+    <div className="mb-8 w-full max-w-xs sm:max-w-sm md:max-w-md">
+      <svg
+        viewBox="0 0 360 90"
+        role="img"
+        aria-labelledby="signatureTitle"
+        className="h-auto w-full text-gray-800"
+      >
+        <title id="signatureTitle">Signature of Matt Morgan</title>
+        <path
+          d="M12 62c24-10 62-28 76-36 24-12 32-12 44-8s14 20-4 24-50-6-60-24c-8-16-6-30 6-32 14-2 24 16 32 30 18 34 44 58 62 58 12 0 28-10 44-36s32-52 46-52c18 0 28 44-36 72-34 14-48 18-48 24 0 4 6 8 22 8 18 0 42-6 74-20"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="opacity-80"
+        />
+      </svg>
+      <div className="mt-2 text-sm text-gray-500">Matt Morgan</div>
+    </div>
   );
 }
 
