@@ -47,20 +47,23 @@ export default function FacesOfJusticeSection() {
     setCurrentSlide((prev) => (prev <= 0 ? maxSlideIndex : prev - 1));
   };
 
-  const slideOffsetPercent = currentSlide * (100 / cardsPerView);
   const cardWidthPercent = useMemo(() => 100 / cardsPerView, [cardsPerView]);
+  const slideOffsetPercent = useMemo(
+    () => (totalSlides > 0 ? (currentSlide * 100) / totalSlides : 0),
+    [currentSlide, totalSlides],
+  );
 
   return (
     <section className="bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-10 xl:px-12">
-      <div className="mx-auto w-full max-w-7xl">
-        <div className="grid gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-start">
+      <div className="mx-auto w-full max-w-7xl overflow-hidden">
+        <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-start">
           {/* Left Column - Text Content */}
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+          <div className="mx-auto flex w-full max-w-xl flex-col items-center px-2 text-center sm:max-w-2xl sm:px-4 md:mx-0 md:max-w-none md:items-start md:px-0 md:text-left">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
               {t('faces.title')}
             </h2>
             
-            <p className="mb-8 text-lg leading-relaxed text-gray-800 md:text-xl">
+            <p className="mb-8 text-base leading-relaxed text-gray-800 sm:text-lg md:text-xl">
               {t('faces.description')}
             </p>
             
@@ -94,7 +97,7 @@ export default function FacesOfJusticeSection() {
           </div>
 
           {/* Right Column - Video Thumbnails */}
-          <div className="flex flex-col">
+          <div className="flex w-full flex-col">
             <div className="relative mb-8">
               <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between px-1 sm:px-2">
                 <CarouselButton direction="prev" onClick={handlePrev} label={t('common.aria.showPreviousAttorney')} />
@@ -112,10 +115,10 @@ export default function FacesOfJusticeSection() {
                       <div
                         key={attorney.name}
                         style={{ flex: `0 0 ${cardWidthPercent}%` }}
-                        className="box-border px-2 py-3 sm:px-3"
+                        className="box-border px-1 py-2 sm:px-3"
                       >
                         <div
-                          className={`relative mb-3 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg transition ${
+                          className={`relative mx-auto mb-3 aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl shadow-lg transition sm:aspect-[3/4] ${
                             isActive
                               ? 'ring-4 ring-brand-accent ring-offset-2 ring-offset-white'
                               : 'ring-1 ring-gray-200'
