@@ -1,6 +1,7 @@
 import FeeFreeSection from '../components/home/FeeFreeSection';
 import HeroSection from '../components/home/HeroSection';
 import BigWinsSection from '../components/home/BigWinsSection';
+import BigResultsSection from '../components/home/BigResultsSection';
 import WaysWeCanHelpSection from '../components/home/WaysWeCanHelpSection';
 import CaseTypesSection from '../components/home/CaseTypesSection';
 import FacesOfJusticeSection from '../components/home/FacesOfJusticeSection';
@@ -21,6 +22,7 @@ export default function Home() {
 
       <GetJusticeStepsSection />
       <BigWinsSection />
+      <BigResultsSection />
       <WaysWeCanHelpSection />
       <CaseTypesSection />
       <FacesOfJusticeSection />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
@@ -188,6 +188,9 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Newsletter Section */}
+      <NewsletterSection />
+
       {/* Bottom Footer */}
       <div className="border-t border-gray-200">
         <div className="container mx-auto px-4 py-4">
@@ -210,6 +213,65 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function NewsletterSection() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setMessage('');
+
+    // TODO: Implement actual newsletter subscription API call
+    // For now, just simulate a submission
+    setTimeout(() => {
+      setMessage('Thank you for subscribing!');
+      setEmail('');
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  return (
+    <div className="bg-black text-white py-12 px-4">
+      <div className="container mx-auto max-w-2xl">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+          Subscribe to Our Newsletter
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label htmlFor="newsletter-email" className="text-sm font-medium">
+                Email Address <span className="text-red-500">*</span>
+              </label>
+              <span className="text-xs text-gray-400">• indicates required</span>
+            </div>
+            <input
+              type="email"
+              id="newsletter-email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-4 py-3 bg-white text-black rounded border-0 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+              placeholder="Enter your email address"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full md:w-auto bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+          >
+            {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+          </button>
+          {message && (
+            <p className="text-sm text-green-400 mt-2">{message}</p>
+          )}
+        </form>
+      </div>
+    </div>
   );
 }
 
