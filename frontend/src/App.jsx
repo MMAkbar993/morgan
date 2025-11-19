@@ -21,6 +21,14 @@ export default function App() {
       script.id = id;
       script.src = src;
       script.async = true;
+      
+      // Add error handling for script loading
+      script.onerror = () => {
+        if (import.meta.env.DEV) {
+          console.warn(`Failed to load script: ${src}`);
+        }
+      };
+      
       Object.entries(attributes).forEach(([key, value]) => {
         if (value !== undefined && value !== null && value !== '') {
           script.setAttribute(key, value);
@@ -31,9 +39,18 @@ export default function App() {
     };
 
     const isDev = import.meta.env.DEV;
-    const tidioSrc = INTEGRATIONS.tidio.scriptSrc?.trim();
+    let tidioSrc = INTEGRATIONS.tidio.scriptSrc?.trim();
 
-    if (tidioSrc) {
+    // Normalize protocol-relative URLs to https
+    if (tidioSrc && tidioSrc.startsWith('//')) {
+      tidioSrc = `https:${tidioSrc}`;
+    }
+
+    // Only load Tidio if a valid script src is provided (not a placeholder)
+    if (tidioSrc && 
+        !tidioSrc.includes('your-tidio-id') && 
+        (tidioSrc.startsWith('http://') || tidioSrc.startsWith('https://')) &&
+        tidioSrc.endsWith('.js')) {
       const tidioScript = appendScript({
         id: 'tidio-chat-widget',
         src: tidioSrc,
@@ -41,6 +58,8 @@ export default function App() {
       if (tidioScript) {
         scripts.push(tidioScript);
       }
+    } else if (isDev && tidioSrc) {
+      console.info('Tidio chat script URL appears to be a placeholder. Set VITE_TIDIO_SCRIPT_SRC to your actual Tidio script URL.');
     } else if (isDev) {
       console.info('Tidio chat is not configured. Set VITE_TIDIO_SCRIPT_SRC to enable it.');
     }
@@ -57,6 +76,27 @@ export default function App() {
       }
     } else if (isDev) {
       console.info('UserWay accessibility widget is not configured. Set VITE_USERWAY_ACCOUNT_ID to enable it.');
+    }
+
+    // accessiBe accessibility widget (alternative to UserWay)
+    const accessibeAccount = INTEGRATIONS.accessibe.accountId?.trim();
+    if (accessibeAccount) {
+      // Note: Only load one accessibility widget at a time
+      // If UserWay is already loaded, skip accessiBe
+      if (!userwayAccount) {
+        const accessibeScript = appendScript({
+          id: 'accessibe-widget',
+          src: INTEGRATIONS.accessibe.scriptSrc,
+          attributes: { 'data-api-key': accessibeAccount },
+        });
+        if (accessibeScript) {
+          scripts.push(accessibeScript);
+        }
+      } else if (isDev) {
+        console.info('accessiBe is configured but UserWay is active. Disable UserWay to use accessiBe instead.');
+      }
+    } else if (isDev && !userwayAccount) {
+      console.info('Accessibility widget is not configured. Set VITE_USERWAY_ACCOUNT_ID or VITE_ACCESSIBE_ACCOUNT_ID to enable it.');
     }
 
     return () => {
