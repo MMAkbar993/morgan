@@ -11,3 +11,37 @@
     display: none;
   }
 }
+
+/* Accessibility Widget Positioning - Mobile */
+@media (max-width: 768px) {
+  /* UserWay Widget */
+  #userway-accessibility-widget,
+  #userway-accessibility-widget iframe,
+  .userway_accessibility_widget,
+  [id*="userway"],
+  [class*="userway"] {
+    right: auto !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    top: auto !important;
+  }
+
+  /* accessiBe Widget */
+  #accessibe-widget,
+  #accessibe-widget iframe,
+  [id*="accessibe"],
+  [class*="accessibe"] {
+    right: auto !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    top: auto !important;
+  }
+
+  /* Ensure it doesn't overlap with chat widget on mobile */
+  #tidio-chat-widget,
+  #tidio-chat-widget iframe,
+  [id*="tidio"] {
+    right: 16px !important;
+    left: auto !important;
+  }
+}
