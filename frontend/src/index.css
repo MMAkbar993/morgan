@@ -21,7 +21,7 @@
   [id*="userway"],
   [class*="userway"] {
     right: auto !important;
-    left: 16px !important;
+    left: 20px !important;
     bottom: 16px !important;
     top: auto !important;
   }
@@ -32,7 +32,7 @@
   [id*="accessibe"],
   [class*="accessibe"] {
     right: auto !important;
-    left: 16px !important;
+    left: 20px !important;
     bottom: 16px !important;
     top: auto !important;
   }
