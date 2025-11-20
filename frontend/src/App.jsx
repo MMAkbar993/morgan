@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
+import MobileCallButton from './components/common/MobileCallButton';
 import Home from './pages/home';
 import PracticeAreas from './pages/practice-areas';
 import Locations from './pages/locations';
@@ -122,6 +123,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <MobileCallButton />
       </div>
     </BrowserRouter>
   );

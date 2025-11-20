@@ -58,12 +58,20 @@ export default function FeeFreeSection() {
             </h1>
 
             {/* Call to Action */}
-            <p className="mb-8 text-lg font-semibold md:text-xl">
+            <p className="mb-4 text-lg font-semibold md:text-xl">
               <Trans
                 i18nKey="feeFree.subheading"
                 components={[<span className="underline font-semibold" />]}
               />
             </p>
+            
+            {/* Phone Number */}
+            <a 
+              href={`tel:${t('common.phone').replace(/[^\d]/g, '')}`}
+              className="mb-8 text-xl md:text-2xl font-bold text-[#f5d000] hover:text-[#f5d000]/80 transition-colors inline-block"
+            >
+              {t('common.phone')}
+            </a>
 
             {/* Video Player */}
             <div className="relative mb-10 w-full max-w-lg md:max-w-xl">
@@ -158,9 +166,17 @@ export default function FeeFreeSection() {
 
           {/* Right Column - Contact Form */}
           <div className="w-full max-w-md rounded-3xl border border-white/20  p-[32px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur">
-            <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
+            <h2 className="mb-2 text-2xl font-semibold md:text-3xl">
               {t('feeFree.formTitle')}
             </h2>
+            
+            {/* Phone Number */}
+            <a 
+              href={`tel:${t('common.phone').replace(/[^\d]/g, '')}`}
+              className="mb-6 text-xl md:text-2xl font-bold text-[#f5d000] hover:text-[#f5d000]/80 transition-colors inline-block"
+            >
+              {t('common.phone')}
+            </a>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* First Name and Last Name */}
